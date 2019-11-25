@@ -4,15 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="二零一七年终总结, NLP DeepLearning 大米 自然语言处理 深度学习">
+    <meta name="keywords" content="线性模型公式推导（上）, NLP DeepLearning 大米 自然语言处理 深度学习">
     <meta name="baidu-site-verification" content="Xis4216lgs">
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="
+    <meta name="description" content="1线性模型公式推导（上）本篇对线性模型中的一元线性回归与多元线性回归模型进行了推导
+1.1一元线性回归公式推导1.1.1推导流程及思路
+先由最小二乘法导出损失函数$E(w,b)$
 
-时间过得很快，终于等到放寒假了，虽然这几个月没有课，天天和放假也没啥区别呢。细数一下，还有5个月就要毕业了吧，大一刚入学的场景却依然清楚地记得，转眼间就成了老学长了呢。闲来无事，随便写写，有感而发，无病呻吟而已。
-2017
-回顾我的20">
+证明损失函数$E(w,b)$是关于w和b的凸函数。（因为只">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>二零一七年终总结 |  米仓</title>
+    <title>线性模型公式推导（上） |  米仓</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -294,13 +294,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        二零一七年终总结
+                        线性模型公式推导（上）
                     </div>
                 </div>
             </div>
@@ -411,8 +411,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/随笔/" target="_blank">
-                            <span class="chip bg-color">随笔</span>
+                        <a href="/tags/降魔/" target="_blank">
+                            <span class="chip bg-color">降魔</span>
                         </a>
                         
                     </div>
@@ -423,8 +423,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/随笔/" class="post-category" target="_blank">
-                            随笔
+                        <a href="/categories/机器学习模型/" class="post-category" target="_blank">
+                            机器学习模型
                         </a>
                         
                     </div>
@@ -435,7 +435,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-01-22
+                    2019-11-25
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -449,14 +449,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    15 分
                 </div>
                 
                 
@@ -472,37 +472,143 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div align="middle"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=407679465&auto=1&height=66"></iframe></div>
-
-<p>时间过得很快，终于等到放寒假了，虽然这几个月没有课，天天和放假也没啥区别呢。细数一下，还有5个月就要毕业了吧，大一刚入学的场景却依然清楚地记得，转眼间就成了老学长了呢。闲来无事，随便写写，有感而发，无病呻吟而已。</p>
-<h1 id="2017"><a href="#2017" class="headerlink" title="2017"></a>2017</h1><hr>
-<p>回顾我的2017，没做什么事，令我能记得就3件大事吧：</p>
-<ul>
-<li>失恋ing</li>
-<li>ACM退役</li>
-<li>顺利保研</li>
-</ul>
-<p><strong>第一件事</strong>就不想过多回忆了，<strong>2014.12.13 ~ 2017.03.01</strong>，曲终人散。<br><img src="749826.jpg" alt><br>最后引用《我的少女时代》里的一句话吧。</p>
-<blockquote>
-<p>每人都有一颗林真心，遇见是最美好的小幸运，谢谢你出现在我的青春里。</p>
-</blockquote>
-<p><img src="1.jpg" alt><br><strong>第二件事</strong>其实也是黯淡退出吧，大三下开始课程繁忙，也就没怎么训练了，再加上暑假考驾照，于是乎就退役了。回顾三年来，从大一入学时电脑都没怎么碰过的小白，到现在算法也略有所知，也是付出过很大的努力吧，毕竟当年每天刷题，为了一个bug而熬夜到凌晨。最后也算是混了个水水的金牌，奖项不算耀眼。但最重要的是从这段经历中，学到了拼搏、坚持的一种精神，这对以后的研究生涯想必也有很大帮助。<br><img src="2.jpg" alt><br><strong>第三件事</strong>也是意料之中吧，没有什么波折。纠结了很多，虽然<strong>专业第一</strong>，但是最后还是选择保了本校。要问原因，也许是校园情怀，也许是导师人很好，也许是为了方便更早研究，也许就是懒吧。现在尘埃落定，靠人靠天不如靠自己，继续努力吧。<br><img src="3.jpg" alt></p>
-<p>过去的一年，学业未有很大长进，看着同学们整页的4.0绩点，心里倒也没有什么不平衡了。下学期保了研之后选了一门研究生的文本挖掘课，也马马虎虎读了几十篇论文，也算是对自然语言处理和深度学习入了个门，最后的presentation做的还算满意。</p>
-<h1 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h1><hr>
-<p>今年最重要的大事莫过于毕业论文了，因为以后要做的方向是句法分析，所以导师给我的毕业论文安排的就是《基于循环神经网络的成分句法分析》。虽然说是基于ACL2013的一篇论文改编的，但是目前为止，我还没有发现有人做和这个完全一样的。也许最后写的好的话可以直接发paper了。</p>
-<p>但是目前基本的框架还没完全搭建起来吧，代码还不是很熟练，现在只写了一个最基础的动态规划+RNN。最近有如下计划：</p>
-<ul>
-<li>准备试一下动态规划+LSTM。</li>
-<li>然后动态规划扩增一个维度，用来保存左右结点的head结点。</li>
-<li>如果这个写好了，就可以和我github找到的PCFG+CYK代码融合了，准备加上每个结点的POS。</li>
-<li>最后加入预训练词向量应该就基本完成了。</li>
-</ul>
-<p>希望能顺利毕业吧，前一段时间一直对一些实现细节有些困惑，代码还写错了，还以为理论错了。也不知道最后出来的结果会怎么样，希望能不错。</p>
-<p>生活方面，最近半年越来越懒了，极少出门，睡得晚，起的也晚。最近买了把尤克里里，也算是陶冶陶冶情操吧，不至于一直盯着电脑。现在也小有长进，能弹一点点了。</p>
-<p>现在能聊天的人越来越少了，QQ微信放那一天也不一定会有人来找，就算有人也多半是咨询问题的，等一个可以交心的人吧。有时我也想过，我是不是太像中央空调了，对所有人都这么有耐心，到头来却还是一个人，付出那么多最后还是一无所有。<br><img src="4.jpg" alt><br>最后还是祝自己2018年顺利吧，希望毕业顺利，研究生涯小有收获，最后等一个有缘人吧。</p>
-<blockquote>
-<p>我遇见谁，会有怎样的对白。<br>我等的人，她在多远的未来。</p>
-</blockquote>
+                <h1 id="1线性模型公式推导（上）"><a href="#1线性模型公式推导（上）" class="headerlink" title="1线性模型公式推导（上）"></a>1线性模型公式推导（上）</h1><p>本篇对线性模型中的一元线性回归与多元线性回归模型进行了推导</p>
+<h2 id="1-1一元线性回归公式推导"><a href="#1-1一元线性回归公式推导" class="headerlink" title="1.1一元线性回归公式推导"></a>1.1一元线性回归公式推导</h2><h3 id="1-1-1推导流程及思路"><a href="#1-1-1推导流程及思路" class="headerlink" title="1.1.1推导流程及思路"></a>1.1.1推导流程及思路</h3><ol>
+<li><p>先由最小二乘法导出损失函数$E(w,b)$</p>
+</li>
+<li><p>证明损失函数$E(w,b)$是关于w和b的凸函数。（因为只有凸函数才有最小值）</p>
+</li>
+<li><p>对损失函数$E(w,b)$关于w 和 b分别求一阶导数</p>
+</li>
+<li><p>令一阶偏导数等于0解出w和b。</p>
+</li>
+</ol>
+<h3 id="1-1-2核心思想是最小二乘法"><a href="#1-1-2核心思想是最小二乘法" class="headerlink" title="1.1.2核心思想是最小二乘法"></a>1.1.2核心思想是最小二乘法</h3><p>一元线性回归公式：$f(x_i)=wx_i+b$</p>
+<h4 id="1-1-2-1由最小二乘法导出平方损失-E-w-b"><a href="#1-1-2-1由最小二乘法导出平方损失-E-w-b" class="headerlink" title="1.1.2.1由最小二乘法导出平方损失 E(w,b)"></a>1.1.2.1由最小二乘法导出平方损失 E(w,b)</h4><script type="math/tex; mode=display">\begin{aligned} E(w,b)
+    &= \sum _{i=1}^m(y_i-f(x_i))^2\\
+    &=\sum_{i=1}^m(y_i-(wx_i+b))^2\\
+    &=\sum_{i=1}^m(y_i-wx_i-b)^2 \qquad\qquad\qquad(1.1)
+\end{aligned}</script><h4 id="1-1-2-2我们的目的是求出损失函数E-w-b-取最小值时，w与b的解"><a href="#1-1-2-2我们的目的是求出损失函数E-w-b-取最小值时，w与b的解" class="headerlink" title="1.1.2.2我们的目的是求出损失函数E(w,b)取最小值时，w与b的解"></a>1.1.2.2我们的目的是求出损失函数E(w,b)取最小值时，w与b的解</h4><script type="math/tex; mode=display">(w^*,b^*)= \underset{(w,b)}{\operatorname{argmin}}\sum_{i=1}^m(y_i-wx_i-b)^2</script><h3 id="1-1-3判断损失函数E-w-b-的凹凸性"><a href="#1-1-3判断损失函数E-w-b-的凹凸性" class="headerlink" title="1.1.3判断损失函数E(w,b)的凹凸性"></a>1.1.3判断损失函数E(w,b)的凹凸性</h3><p>由凹凸函数的判定定理：设E(w,b)在区域D上具有二阶连续偏导数</p>
+<p>记$A=E’’_{ww}(w,b),  B=E’’_{wb}(w,b), C=E’’_{bb}(w,b)$ 则：$A&gt;0, 且 AC-B^2\geq0$ 时，E(w,b)在区域D上是凸函数；</p>
+<h4 id="1-1-3-1根据上述定理我们先来求A，A为E-w-b-对w的二阶偏导数-E’’-ww-w-b"><a href="#1-1-3-1根据上述定理我们先来求A，A为E-w-b-对w的二阶偏导数-E’’-ww-w-b" class="headerlink" title="1.1.3.1根据上述定理我们先来求A，A为E(w,b)对w的二阶偏导数$E’’_{ww}(w,b)$"></a>1.1.3.1根据上述定理我们先来求A，A为E(w,b)对w的二阶偏导数$E’’_{ww}(w,b)$</h4><ol>
+<li>我们先求E(w,b)对w的一阶偏导数：</li>
+</ol>
+<script type="math/tex; mode=display">\begin{aligned} E'_w(w,b)
+    &=\frac{\partial E(w,b)}{\partial w}\\
+    &=\frac{\partial }{\partial w}\bigg[\sum_{i=1}^m(y_i-wx_i-b)^2\bigg]\\
+    &=\sum_{i=1}^m\frac{\partial }{\partial w}(y_i-wx_i-b)^2\\
+    &=\sum_{i=1}^m2\cdot(y_i-wx_i-b)\cdot(-x_i)\\
+    &=2\bigg(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i\bigg)\qquad\qquad\qquad(1.2)
+\end{aligned}</script><ol>
+<li>然后根据上述结果进而求出A:</li>
+</ol>
+<script type="math/tex; mode=display">\begin{aligned}A
+    &=E''_{ww}(w,b)\\
+    &=\frac{\partial^2 E(w,b)}{\partial w^2}\\
+    &= \frac{\partial }{\partial w}\bigg(\frac{\partial E(w,b)}{\partial w}\bigg)\\
+    &= \frac{\partial }{\partial w}\bigg[2\bigg(w\sum_{i=1}^m x_i^2-\sum_{i=1}^m(y_i-b)x_i\bigg)\bigg]\\
+    &=\frac{\partial }{\partial w}\bigg[2w\sum_{i=1}^m x_i^2\bigg]\\
+    &=2\sum_{i=1}^mx_i^2 \qquad\qquad\qquad       这就是A=E''_{ww}(w,b)
+\end{aligned}</script><h4 id="1-1-3-2接下来我们来求B，B为E-w-b-对w和b的二阶混合偏导数-E’’-wb-w-b"><a href="#1-1-3-2接下来我们来求B，B为E-w-b-对w和b的二阶混合偏导数-E’’-wb-w-b" class="headerlink" title="1.1.3.2接下来我们来求B，B为E(w,b)对w和b的二阶混合偏导数: $E’’_{wb}(w,b)$"></a>1.1.3.2接下来我们来求B，B为E(w,b)对w和b的二阶混合偏导数: $E’’_{wb}(w,b)$</h4><script type="math/tex; mode=display">\begin{aligned} E''_{wb}(w,b)
+    &=\frac{\partial^2 E(w,b)}{\partial w \partial b}\\
+    &=\frac{\partial}{\partial b}\bigg(\frac{\partial E(w,b)}{\partial w}\bigg)\\
+    &=\frac{\partial}{\partial b}\bigg[2\bigg(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i\bigg)\bigg]\\
+    &=\frac{\partial}{\partial b}\bigg[-2\sum_{i=1}^m(y_i-b)x_i\bigg]\\
+    &=\frac{\partial}{\partial b}\bigg(-2\sum_{i=1}^my_ix_i+2\sum_{i=1}^mbx_i\bigg)\\
+    &=2\sum_{i=1}^mx_i \qquad\qquad\qquad       这就是B=E''_{wb}(w,b)
+\end{aligned}</script><h4 id="1-1-3-3最后我们来求C，C为E-w-b-对b的二阶偏导数-E’’-bb-w-b"><a href="#1-1-3-3最后我们来求C，C为E-w-b-对b的二阶偏导数-E’’-bb-w-b" class="headerlink" title="1.1.3.3最后我们来求C，C为E(w,b)对b的二阶偏导数$E’’_{bb}(w,b)$"></a>1.1.3.3最后我们来求C，C为E(w,b)对b的二阶偏导数$E’’_{bb}(w,b)$</h4><ol>
+<li>我们先求E(w,b)对b的一阶偏导数：$E’_b(w,b)=\frac{\partial E(w,b)}{\partial b}$</li>
+</ol>
+<script type="math/tex; mode=display">\begin{aligned} \frac{\partial E(w,b)}{\partial b}
+    &=\frac{\partial}{\partial b}\bigg[ \sum_{i=1}^m(y_i-wx_i-b)^2\bigg]\\
+    &=\sum_{i=1}^m\frac{\partial}{\partial b}(y_i-wx_i-b)^2\\
+    &=\sum_{i=1}^m2\cdot(y_i-wx_i-b)\cdot(-1)\\
+    &=2\bigg(mb-\sum_{i=1}^m(y_i-wx_i)\bigg)\qquad\qquad\qquad(1.3)
+\end{aligned}</script><ol>
+<li>然后根据上述结果进而求出C。 $C=E’’_{bb}(w,b)=\frac{\partial^2 E(w,b)}{\partial b^2}$</li>
+</ol>
+<script type="math/tex; mode=display">\begin{aligned} \frac{\partial^2 E(w,b)}{\partial b^2}
+    &=\frac{\partial}{\partial b}\bigg(\frac{\partial E(w,b)}{\partial b}\bigg)\\
+    &=\frac{\partial}{\partial b}\bigg[ 2\bigg(mb-\sum_{i=1}^m(y_i-wx_i)\bigg)\bigg]\\
+    &=2m\qquad\qquad\qquad       这就是C=E''_{bb}(w,b)
+\end{aligned}</script><h4 id="1-1-3-4下面我们根据上面算出的ABC的值，来证明E-w-b-的凹凸性"><a href="#1-1-3-4下面我们根据上面算出的ABC的值，来证明E-w-b-的凹凸性" class="headerlink" title="1.1.3.4下面我们根据上面算出的ABC的值，来证明E(w,b)的凹凸性"></a>1.1.3.4下面我们根据上面算出的ABC的值，来证明E(w,b)的凹凸性</h4><p>我把定理贴过来再看一眼：设E(w,b)在区域D上具有二阶连续偏导数</p>
+<p>记$A=E’’_{ww}(w,b),  B=E’’_{wb}(w,b), C=E’’_{bb}(w,b)$ 则：$A&gt;0, 且 AC-B^2\geq0$ 时，E(w,b)在区域D上是凸函数；</p>
+<p>由上文可得：$A=2\sum\limits_{i=1}^mx_i^2\qquad\qquad B=2\sum\limits_{i=1}^mx_i\qquad\qquad C=2m$</p>
+<p>A显然是大于0的。</p>
+<script type="math/tex; mode=display">\begin{aligned} AC-B^2
+    &=2m\cdot2\sum\limits_{i=1}^mx_i^2-\bigg( 2\sum\limits_{i=1}^mx_i\bigg)^2\\
+    &=4m\sum\limits_{i=1}^mx_i^2-4m\cdot\frac1m\cdot\bigg( \sum\limits_{i=1}^mx_i\bigg)^2\\
+    &=4m\sum\limits_{i=1}^mx_i^2-4m\cdot\bar x\cdot \sum\limits_{i=1}^mx_i\\
+    &=4m\bigg( \sum\limits_{i=1}^mx_i^2-\sum\limits_{i=1}^mx_i\bar x\bigg)\\
+    &=4m\sum\limits_{i=1}^m(x_i^2-x_i\bar x) \\
+    &=4m\sum\limits_{i=1}^m(x_i^2-x_i\bar x-x_i\bar x+x_i\bar x)\qquad\longleftarrow\qquad因为\sum\limits_{i=1}^mx_i\bar x=m\bar x\bar x=\sum\limits_{i=1}^m\bar x^2\\
+    &=4m\sum\limits_{i=1}^m(x_i-\bar x)^2 \geq0
+\end{aligned}</script><p>由上可以证明：$\color{red}{E(w,b)是关于w和b的凸函数.}$</p>
+<h3 id="1-1-4算出损失函数取最小值时w与b的值"><a href="#1-1-4算出损失函数取最小值时w与b的值" class="headerlink" title="1.1.4算出损失函数取最小值时w与b的值"></a>1.1.4算出损失函数取最小值时w与b的值</h3><p>根据定理：设$E(w,b)$是在D内有连续偏导数的凸函数</p>
+<script type="math/tex; mode=display">(w^*，b^*)\in D\quad 且:E'_w(w{^*} , b {^*} )=0,E'_b(w^*,b^*)=0 \quad
+则:E(w^*,b^*)必为E(w,b)在D内的最小值。</script><p>$前面的小节我们证明了损失函数E(w,b)是凸函数，所以E(w,b)取最小值时，w与b的解满足E(w,b)的一阶偏导数为0$</p>
+<h4 id="1-1-4-1先来求b"><a href="#1-1-4-1先来求b" class="headerlink" title="1.1.4.1先来求b"></a>1.1.4.1先来求b</h4><p>令 $\frac{\partial E(w,b)}{\partial b}=0$  (即：式1.3=0)</p>
+<script type="math/tex; mode=display">\frac{\partial E(w,b)}{\partial b}=2\bigg(mb-\sum_{i=1}^m(y_i-wx_i)\bigg)=0</script><script type="math/tex; mode=display">mb = \sum_{i=1}^m(y_i-wx_i)</script><script type="math/tex; mode=display">\begin{aligned}b^*
+    &=\frac1m\sum_{i=1}^m(y_i-wx_i)\\
+    &=\frac1m\sum_{i=1}^my_i-w\cdot\frac1m\sum_{i=1}^mx_i\\
+    &=\bar y-w\bar x\\
+\end{aligned}</script><h4 id="1-1-4-2再来求w"><a href="#1-1-4-2再来求w" class="headerlink" title="1.1.4.2再来求w"></a>1.1.4.2再来求w</h4><p>$令\frac{\partial E(w,b)}{\partial w}=0$  (即：式1.2=0)</p>
+<script type="math/tex; mode=display">\frac{\partial E(w,b)}{\partial w}=2\bigg(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i\bigg)=0</script><script type="math/tex; mode=display">w\sum_{i=1}^mx_i^2=\sum_{i=1}^my_ix_i-\sum_{i=1}^mbx_i</script><script type="math/tex; mode=display">w\sum_{i=1}^mx_i^2=\sum_{i=1}^my_ix_i-\sum_{i=1}^m(\bar y-w\bar x)x_i</script><script type="math/tex; mode=display">w\sum_{i=1}^mx_i^2=\sum_{i=1}^my_ix_i-\bar y\sum_{i=1}^mx_i+w\bar x\sum_{i=1}^mx_i</script><script type="math/tex; mode=display">w\bigg(\sum_{i=1}^mx_i^2-\bar x\sum_{i=1}^mx_i\bigg)=\sum_{i=1}^my_ix_i-\bar y\sum_{i=1}^mx_i</script><script type="math/tex; mode=display">w^*=\frac{\sum\limits_{i=1}^my_ix_i-\bar y\sum\limits_{i=1}^mx_i}{\sum\limits_{i=1}^mx_i^2-\bar x\sum\limits_{i=1}^mx_i}\qquad\qquad(1.4)</script><p>因为：</p>
+<script type="math/tex; mode=display">\bar y\sum\limits_{i=1}^mx_i=\frac1m\sum\limits_{i=1}^my_i\sum\limits_{i=1}^mx_i=\bar x\sum\limits_{i=1}^my_i\qquad\qquad(1.5)</script><script type="math/tex; mode=display">\bar x\sum\limits_{i=1}^mx_i=\frac1m\sum\limits_{i=1}^mx_i\sum\limits_{i=1}^mx_i=\frac1m(\sum\limits_{i=1}^mx_i)^2\qquad\qquad(1.6)</script><p>将1.5和1.6代入1.4可得：</p>
+<script type="math/tex; mode=display">w^*=\frac{\sum\limits_{i=1}^my_ix_i-\bar x\sum\limits_{i=1}^my_i}{\sum\limits_{i=1}^mx_i^2-\frac1m(\sum\limits_{i=1}^mx_i)^2}=\frac{\sum\limits_{i=1}^my_i(x_i-\bar x)}{\sum\limits_{i=1}^mx_i^2-\frac1m(\sum\limits_{i=1}^mx_i)^2}</script><p>到此为止我们就求出了损失函数取最小值时的w和b的值。</p>
+<h2 id="1-2多元线性回归公式推导"><a href="#1-2多元线性回归公式推导" class="headerlink" title="1.2多元线性回归公式推导"></a>1.2多元线性回归公式推导</h2><h3 id="1-2-1先对公式进行一个简单的变形"><a href="#1-2-1先对公式进行一个简单的变形" class="headerlink" title="1.2.1先对公式进行一个简单的变形"></a>1.2.1先对公式进行一个简单的变形</h3><p>多元线性回归公式：（大家一定要记住：多元线性回归里变量为向量）</p>
+<script type="math/tex; mode=display">\begin{aligned}f(x_i)
+&=w^Tx_i+b\\
+&=(w_1 \   w_2\  \cdots \   w_d)  \left(\begin{matrix}x_{i1}\\ x_{i2}  \\ \vdots \\ x_{id}\end{matrix}\right) +b\\
+&=w_1x_{i1}+w_2x_{i2}+\dots+w_dx_{id}+b
+\end{aligned}</script><p>现在我们令：</p>
+<p>$b=w_{d+1}  $</p>
+<script type="math/tex; mode=display">\begin{aligned}f(x_i)
+&=(w_1 \   w_2\  \cdots \   w_d \   )  \left(\begin{matrix}x_{i1}\\ x_{i2}  \\ \vdots \\ x_{id}\end{matrix}\right) +b\\
+&=(w_1 \   w_2\  \cdots \   w_d \    w_{d+1})  \left(\begin{matrix}x_{i1}\\ x_{i2}  \\ \vdots \\ x_{id} \\ 1\end{matrix}\right)
+=\hat w \hat x_i
+\end{aligned}</script><p>通过上面的方法，我们把w和b组合成了$\hat w$ 则：</p>
+<script type="math/tex; mode=display">f(\hat x_i)=\hat w^T\hat x_i</script><h3 id="1-2-2推导流程及思路"><a href="#1-2-2推导流程及思路" class="headerlink" title="1.2.2推导流程及思路"></a>1.2.2推导流程及思路</h3><ol>
+<li>由最小二乘法导出损失函数$E_{\hat w}$。</li>
+</ol>
+<ol>
+<li>证明损失函数$E_{\hat w}是关于\hat w$的凸函数。</li>
+</ol>
+<ol>
+<li>对损失函数$E_{\hat w}关于\hat w$求一阶导数。</li>
+</ol>
+<ol>
+<li>令一阶导数等于0解出$\hat w$</li>
+</ol>
+<h3 id="1-2-3核心思想依然是最小二乘法"><a href="#1-2-3核心思想依然是最小二乘法" class="headerlink" title="1.2.3核心思想依然是最小二乘法"></a>1.2.3核心思想依然是最小二乘法</h3><h4 id="1-2-3-1由最小二乘法导出损失函数"><a href="#1-2-3-1由最小二乘法导出损失函数" class="headerlink" title="1.2.3.1由最小二乘法导出损失函数"></a>1.2.3.1由最小二乘法导出损失函数</h4><p>损失函数(均方误差)为：$E_{\hat{w}} = \sum\limits_{i=1}^m(y_i-f(\hat{x_i}))^2=\sum\limits_{i=1}^m(y_i-\hat{w} ^T  \hat{x_i})^2$</p>
+<p>$X=\left(\begin{matrix}x_{11} &amp; x_{12} &amp;\cdots&amp;x_{1d}&amp;1\\ x_{12} &amp;x_{22} &amp;  \cdots&amp;  x_{2d}&amp;1 \\ \vdots &amp; \vdots  &amp;&amp;\vdots&amp;\vdots\\ x_{m1}&amp;x_{m2}&amp;\cdots&amp;x_{md}&amp;1\end{matrix}\right)= \left(\begin{matrix}x_1^T&amp;1\\ x_2^T&amp;1 \\ \vdots &amp;\vdots\\ x_m^T&amp;1\end{matrix}\right)=\left(\begin{matrix}\hat x_1^T\\ \hat x_2^T \\ \vdots \\ \hat x_m^T\end{matrix}\right)$</p>
+<p>$Y=\left(\begin{matrix}y_1\\y_2 \\ \vdots \\y_m\end{matrix}\right)$</p>
+<script type="math/tex; mode=display">\begin{aligned}E_{\hat{w}} 
+&=\sum\limits_{i=1}^m\left(y_i-\hat w^T \hat x_i\right)^2\\
+&=\left( y_1-\hat w^T\hat x_1\right)^2+\left( y_2-\hat w^T\hat x_2\right)^2+\cdots+\left( y_m-\hat w^T\hat x_m\right)^2\\
+&=\left( y_1-\hat w^T\hat x_1 \quad  y_2-\hat w^T\hat x_2  \quad  \cdots \quad   y_m-\hat w^T\hat x_m\right)     \left(\begin{matrix} y_1-\hat w^T\hat x_1\\y_2-\hat w^T\hat x_2 \\ \vdots \\y_m-\hat w^T\hat x_m\end{matrix}\right)\\
+\end{aligned}</script><p>因为： $\hat w^T\hat x_i = \hat x_i^T\hat w（等式两边都是标量）  \qquad \qquad$  </p>
+<p>所以： $\left(\begin{matrix} y_1-\hat w^T\hat x_1\\y_2-\hat w^T\hat x_2 \\ \vdots \\y_m-\hat w^T\hat x_m\end{matrix}\right)=\left(\begin{matrix}y_1\\y_2 \\ \vdots \\y_m\end{matrix}\right) - \left(\begin{matrix}\hat x_1^T\hat w\\\hat x_2^T\hat w\\ \vdots \\\hat x_m^T\hat w\end{matrix}\right)=\left(\begin{matrix}y_1\\y_2 \\ \vdots \\y_m\end{matrix}\right)-\left(\begin{matrix}\hat x_1^T\\\hat x_2^T\\ \vdots \\\hat x_m^T\end{matrix}\right)\cdot\hat w=Y-X\cdot\hat w$$</p>
+<p>所以   $E_{\hat w} = \left( y_1-\hat w^T\hat x_1 \quad  y_2-\hat w^T\hat x_2  \quad  \cdots \quad   y_m-\hat w^T\hat x_m\right)     \left(\begin{matrix} y_1-\hat w^T\hat x_1\\y_2-\hat w^T\hat x_2 \\ \vdots \\y_m-\hat w^T\hat x_m\end{matrix}\right)= \left(Y-X\hat w\right)^T\left(Y-X\hat w\right)\qquad\qquad(1.7)$</p>
+<h3 id="1-2-4判断损失函数E的凹凸性"><a href="#1-2-4判断损失函数E的凹凸性" class="headerlink" title="1.2.4判断损失函数E的凹凸性"></a>1.2.4判断损失函数E的凹凸性</h3><p>如果$E_{\hat w} $的Hessian矩阵是正定的，则$E_{\hat w} $即是凸函数。</p>
+<script type="math/tex; mode=display">\begin{aligned}\frac{\partial E_{\hat w} }{\partial \hat w}
+&=\frac{\partial}{\partial \hat w}\left[\left(Y-X\hat w\right)^T\left(Y-X\hat w\right)\right]\\
+&=\frac{\partial}{\partial \hat w}\left[\left(Y^T-\hat w^T X^T\right)^T\left(Y-X\hat w\right)\right]\\
+&=\frac{\partial}{\partial \hat w}\left[\left(Y^T-\hat w^T X^T\right)^T\left(Y-X\hat w\right)\right]\\
+&=\frac{\partial}{\partial \hat w}\left[Y^TY-Y^TX\hat w-\hat w^TX^TY+\hat w^TX^TX\hat w\right]\\
+&=\frac{\partial Y^TX\hat w}{\partial \hat w}-\frac{\partial \hat w^TX^TY}{\partial \hat w}+\frac{\partial \hat w^TX^TX\hat w}{\partial \hat w}
+\end{aligned}</script><p>因为： $\frac{\partial x^Ta }{\partial x}=\frac{\partial a^Tx }{\partial x}=a\qquad\frac{\partial x^Tbx }{\partial x}=(b+b^T)x\qquad\qquad$</p>
+<p>所以：$\frac{\partial E_{\hat w} }{\partial \hat w}=-X^TY-X^TY+(X^TX+X^TX)\hat w=2X^T(X\hat w-Y)\qquad\qquad(1.8)$</p>
+<p>接下来求2阶偏导数：</p>
+<script type="math/tex; mode=display">\begin{aligned}\frac{\partial^2 E_{\hat w} }{\partial \hat w\partial \hat w^T}
+&=\frac{\partial}{\partial \hat w}\left(\frac{\partial E_{\hat w} }{\partial \hat w}\right)\\
+&=\frac{\partial}{\partial \hat w}\left[2X^T(X\hat w-Y)\right]\\
+&=\frac{\partial}{\partial \hat w}\left(2X^TX\hat w-2X^TY\right)\\
+&=2X^TX\qquad\qquad (Hessian矩阵)
+\end{aligned}</script><h3 id="1-2-5求解损失函数最小时的参数的解"><a href="#1-2-5求解损失函数最小时的参数的解" class="headerlink" title="1.2.5求解损失函数最小时的参数的解"></a>1.2.5求解损失函数最小时的参数的解</h3><p>令（1.8）  $\frac{\partial E_{\hat w} }{\partial \hat w}=2X^T(X\hat w-Y)=0  \qquad得出\qquad2X^TX \hat w=2X^TY$</p>
+<p>等式两边都乘以$(X^TX)^{-1}\qquad  得 \hat w = (X^TX)^{-1}X^TY\qquad\qquad(1.9)$</p>
+<p>至此我们就求出了损失函数取最小值时$\hat w$的值</p>
+<h2 id="1-3结束"><a href="#1-3结束" class="headerlink" title="1.3结束"></a>1.3结束</h2><p>前面1.1和1.2两个章节分别对一元线性回归和多元线性回归的模型的公式进行了推导，下一篇将对逻辑回归和感知机模型进行推导。</p>
 
             </div>
             <hr />
@@ -661,9 +767,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《二零一七年终总结》
+                    《线性模型公式推导（上）》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/01/22/2017-conclusion/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-yi/" property="cc:attributionName"
                rel="cc:attributionURL">
                 大米
             </a> 采用
@@ -704,7 +810,7 @@
         repo: 'godweiyang.github.io',
         owner: 'godweiyang',
         admin: "godweiyang",
-        id: '2018/01/22/2017-conclusion/',
+        id: '2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-yi/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -987,48 +1093,46 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/01/22/2017-conclusion/">
+                <a href="/2019/11/25/xian-xing-mo-xing-dai-ma-shi-xian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="二零一七年终总结">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="线性模型代码实现">
                         
-                        <span class="card-title">二零一七年终总结</span>
+                        <span class="card-title">线性模型代码实现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            时间过得很快，终于等到放寒假了，虽然这几个月没有课，天天和放假也没啥区别呢。细数一下，还有5个月就要毕业了吧，大一刚入学的场景却依然清楚地记得，转眼间就成了老学长了呢。闲来无事，随便写写，有感而发，无病呻吟而已。
+                            本篇为线性模型的python代码实现。
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-25
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/随笔/" class="post-category" target="_blank">
-                                    随笔
+                            <a href="/categories/机器学习模型/" class="post-category" target="_blank">
+                                    机器学习模型
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/随笔/" target="_blank">
-                        <span class="chip bg-color">随笔</span>
+                    <a href="/tags/降魔/" target="_blank">
+                        <span class="chip bg-color">降魔</span>
                     </a>
                     
                 </div>
@@ -1039,45 +1143,46 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
             </div>
             <div class="card">
-                <a href="/2018/01/22/xian-xing-hui-gui-mo-xing-xi-gua/">
+                <a href="/2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="线性模型公式推导">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="线性模型公式推导（上）">
                         
-                        <span class="card-title">线性模型公式推导</span>
+                        <span class="card-title">线性模型公式推导（上）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            时间过得很快，终于等到放寒假了，虽然这几个月没有课，天天和放假也没啥区别呢。细数一下，还有5个月就要毕业了吧，大一刚入学的场景却依然清楚地记得，转眼间就成了老学长了呢。闲来无事，随便写写，有感而发，无病呻吟而已。
+                            本篇内容讲解了线性模型中一元与多元线性回归模型所涉及的数学公式的推导。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/随笔/" class="post-category" target="_blank">
-                                    随笔
+                            <a href="/categories/机器学习模型/" class="post-category" target="_blank">
+                                    机器学习模型
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/随笔/" target="_blank">
-                        <span class="chip bg-color">随笔</span>
+                    <a href="/tags/降魔/" target="_blank">
+                        <span class="chip bg-color">降魔</span>
                     </a>
                     
                 </div>
@@ -1225,6 +1330,13 @@
 </main>
 
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
     <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
@@ -1232,7 +1344,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">4.4k</span>
+            <span class="white-color">3.8k</span>
             
 
             <br>

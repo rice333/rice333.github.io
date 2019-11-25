@@ -4,12 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="线性模型公式推导, NLP DeepLearning 大米 自然语言处理 深度学习">
+    <meta name="keywords" content="线性模型代码实现, NLP DeepLearning 大米 自然语言处理 深度学习">
     <meta name="baidu-site-verification" content="Xis4216lgs">
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="线性回归公式推导一元线性回归公式推导一元线性回归公式：$f(x_i)=wx_i+b$
-损失函数为平方损失（均方误差）：$E(w,b)=\sum \limits_{i=1}^m(y_i-f(x_i))^2    \qquad\qquad\qq">
+    <meta name="description" content="线性模型实现创建一个通用的Estimatorimport warnings
+warnings.filterwarnings(&#39;ignore&#39;)
+import logging
+import autograd.numpy as np
+from ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>线性模型公式推导 |  米仓</title>
+    <title>线性模型代码实现 |  米仓</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -291,13 +294,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        线性模型公式推导
+                        线性模型代码实现
                     </div>
                 </div>
             </div>
@@ -408,8 +411,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/随笔/" target="_blank">
-                            <span class="chip bg-color">随笔</span>
+                        <a href="/tags/降魔/" target="_blank">
+                            <span class="chip bg-color">降魔</span>
                         </a>
                         
                     </div>
@@ -420,8 +423,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/随笔/" class="post-category" target="_blank">
-                            随笔
+                        <a href="/categories/机器学习模型/" class="post-category" target="_blank">
+                            机器学习模型
                         </a>
                         
                     </div>
@@ -432,7 +435,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-01-22
+                    2019-11-25
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -446,14 +449,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    952
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    5 分
                 </div>
                 
                 
@@ -469,149 +472,247 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="线性回归公式推导"><a href="#线性回归公式推导" class="headerlink" title="线性回归公式推导"></a>线性回归公式推导</h1><h2 id="一元线性回归公式推导"><a href="#一元线性回归公式推导" class="headerlink" title="一元线性回归公式推导"></a>一元线性回归公式推导</h2><p>一元线性回归公式：$f(x_i)=wx_i+b$</p>
-<p>损失函数为平方损失（均方误差）：$E(w,b)=\sum \limits_{i=1}^m(y_i-f(x_i))^2    \qquad\qquad\qquad m是样本个数 $</p>
-<h3 id="推导思路-：-核心思想是最小二乘法"><a href="#推导思路-：-核心思想是最小二乘法" class="headerlink" title="推导思路 ： 核心思想是最小二乘法"></a>推导思路 ： 核心思想是最小二乘法</h3><h4 id="由最小二乘法导出平方损失-E-w-b"><a href="#由最小二乘法导出平方损失-E-w-b" class="headerlink" title="由最小二乘法导出平方损失 E(w,b)"></a>由最小二乘法导出平方损失 E(w,b)</h4><script type="math/tex; mode=display">\begin{eqnarray} E(w,b)
-        &=& \sum _{i=1}^m(y_i-f(x_i))^2\\
-        &=&\sum_{i=1}^m(y_i-(wx_i+b))^2\\
-        &=&\sum_{i=1}^m(y_i-wx_i-b)^2 \qquad\qquad\qquad(1.1)
-    \end{eqnarray}</script><h4 id="我们的目的是求出损失函数E-w-b-取最小值时，w与b的解"><a href="#我们的目的是求出损失函数E-w-b-取最小值时，w与b的解" class="headerlink" title="我们的目的是求出损失函数E(w,b)取最小值时，w与b的解"></a>我们的目的是求出损失函数E(w,b)取最小值时，w与b的解</h4><script type="math/tex; mode=display">(w^*,b^*)= \underset{(w,b)}{\operatorname{argmin}}\sum_{i=1}^m(y_i-wx_i-b)^2</script><h3 id="判断损失函数E-w-b-的凹凸性"><a href="#判断损失函数E-w-b-的凹凸性" class="headerlink" title="判断损失函数E(w,b)的凹凸性"></a>判断损失函数E(w,b)的凹凸性</h3><p>由凹凸函数的判定定理：设E(w,b)在区域D上具有二阶连续偏导数</p>
-<p>记$A=E’’_{ww}(w,b),  B=E’’_{wb}(w,b), C=E’’_{bb}(w,b)$ 则：$A&gt;0, 且 AC-B^2\geq0$ 时，E(w,b)在区域D上是凸函数；</p>
-<h4 id="根据上述定理我们先来求A，A为E-w-b-对w的二阶偏导数-E’’-ww-w-b"><a href="#根据上述定理我们先来求A，A为E-w-b-对w的二阶偏导数-E’’-ww-w-b" class="headerlink" title="根据上述定理我们先来求A，A为E(w,b)对w的二阶偏导数$E’’_{ww}(w,b)$"></a>根据上述定理我们先来求A，A为E(w,b)对w的二阶偏导数$E’’_{ww}(w,b)$</h4><ol>
-<li>我们先求E(w,b)对w的一阶偏导数：$E’_w(w,b)=\frac{\partial E(w,b)}{\partial w}$</li>
-</ol>
-<script type="math/tex; mode=display">\begin{eqnarray} \frac{\partial E(w,b)}{\partial w}
-    &=&\frac{\partial }{\partial w}\bigg[\sum_{i=1}^m(y_i-wx_i-b)^2\bigg]\\
-    &=&\sum_{i=1}^m\frac{\partial }{\partial w}(y_i-wx_i-b)^2\\
-    &=&\sum_{i=1}^m2\cdot(y_i-wx_i-b)\cdot(-x_i)\\
-    &=&2\bigg(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i\bigg)\qquad\qquad\qquad(1.2)
-\end{eqnarray}</script><ol>
-<li>然后根据上述结果进而求出A。 $A=E’’_{ww}(w,b)=\frac{\partial^2 E(w,b)}{\partial w^2}$</li>
-</ol>
-<script type="math/tex; mode=display">\begin{eqnarray} \frac{\partial^2 E(w,b)}{\partial w^2}
-    &=& \frac{\partial }{\partial w}\bigg(\frac{\partial E(w,b)}{\partial w}\bigg)\\
-    &=& \frac{\partial }{\partial w}\bigg[2\bigg(w\sum_{i=1}^m x_i^2-\sum_{i=1}^m(y_i-b)x_i\bigg)\bigg]\\
-    &=&\frac{\partial }{\partial w}\bigg[2w\sum_{i=1}^m x_i^2\bigg]\\
-    &=&2\sum_{i=1}^mx_i^2 \qquad\qquad\qquad       这就是A=E''_{ww}(w,b)
-\end{eqnarray}</script><h4 id="接下来我们来求B，B为E-w-b-对w和b的二阶混合偏导数-E’’-wb-w-b"><a href="#接下来我们来求B，B为E-w-b-对w和b的二阶混合偏导数-E’’-wb-w-b" class="headerlink" title="接下来我们来求B，B为E(w,b)对w和b的二阶混合偏导数: $E’’_{wb}(w,b)$"></a>接下来我们来求B，B为E(w,b)对w和b的二阶混合偏导数: $E’’_{wb}(w,b)$</h4><script type="math/tex; mode=display">\begin{eqnarray} E''_{wb}(w,b)
-    &=&\frac{\partial^2 E(w,b)}{\partial w \partial b}\\
-    &=&\frac{\partial}{\partial b}\bigg(\frac{\partial E(w,b)}{\partial w}\bigg)\\
-    &=&\frac{\partial}{\partial b}\bigg[2\bigg(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i\bigg)\bigg]\\
-    &=&\frac{\partial}{\partial b}\bigg[-2\sum_{i=1}^m(y_i-b)x_i\bigg]\\
-    &=&\frac{\partial}{\partial b}\bigg(-2\sum_{i=1}^my_ix_i+2\sum_{i=1}^mbx_i\bigg)\\
-    &=&2\sum_{i=1}^mx_i \qquad\qquad\qquad       这就是B=E''_{wb}(w,b)
-\end{eqnarray}</script><h4 id="最后我们来求C，C为E-w-b-对b的二阶偏导数-E’’-bb-w-b"><a href="#最后我们来求C，C为E-w-b-对b的二阶偏导数-E’’-bb-w-b" class="headerlink" title="最后我们来求C，C为E(w,b)对b的二阶偏导数$E’’_{bb}(w,b)$"></a>最后我们来求C，C为E(w,b)对b的二阶偏导数$E’’_{bb}(w,b)$</h4><ol>
-<li>我们先求E(w,b)对b的一阶偏导数：$E’_b(w,b)=\frac{\partial E(w,b)}{\partial b}$</li>
-</ol>
-<script type="math/tex; mode=display">\begin{eqnarray} \frac{\partial E(w,b)}{\partial b}
-    &=&\frac{\partial}{\partial b}\bigg[ \sum_{i=1}^m(y_i-wx_i-b)^2\bigg]\\
-    &=&\sum_{i=1}^m\frac{\partial}{\partial b}(y_i-wx_i-b)^2\\
-    &=&\sum_{i=1}^m2\cdot(y_i-wx_i-b)\cdot(-1)\\
-    &=&2\bigg(mb-\sum_{i=1}^m(y_i-wx_i)\bigg)\qquad\qquad\qquad(1.3)
-\end{eqnarray}</script><ol>
-<li>然后根据上述结果进而求出C。 $C=E’’_{bb}(w,b)=\frac{\partial^2 E(w,b)}{\partial b^2}$</li>
-</ol>
-<script type="math/tex; mode=display">\begin{eqnarray} \frac{\partial^2 E(w,b)}{\partial b^2}
-    &=&\frac{\partial}{\partial b}\bigg(\frac{\partial E(w,b)}{\partial b}\bigg)\\
-    &=&\frac{\partial}{\partial b}\bigg[ 2\bigg(mb-\sum_{i=1}^m(y_i-wx_i)\bigg)\bigg]\\
-    &=&2m\qquad\qquad\qquad       这就是C=E''_{bb}(w,b)
-\end{eqnarray}</script><h4 id="下面我们根据上面算出的ABC的值，来证明E-w-b-的凹凸性"><a href="#下面我们根据上面算出的ABC的值，来证明E-w-b-的凹凸性" class="headerlink" title="下面我们根据上面算出的ABC的值，来证明E(w,b)的凹凸性"></a>下面我们根据上面算出的ABC的值，来证明E(w,b)的凹凸性</h4><p>我把定理贴过来再看一眼：设E(w,b)在区域D上具有二阶连续偏导数</p>
-<p>记$A=E’’_{ww}(w,b),  B=E’’_{wb}(w,b), C=E’’_{bb}(w,b)$ 则：$A&gt;0, 且 AC-B^2\geq0$ 时，E(w,b)在区域D上是凸函数；</p>
-<p>由上文可得：$A=2\sum\limits_{i=1}^mx_i^2\qquad\qquad B=2\sum\limits_{i=1}^mx_i\qquad\qquad C=2m$</p>
-<p>A显然是大于0的。</p>
-<script type="math/tex; mode=display">\begin{eqnarray} AC-B^2
-    &=&2m\cdot2\sum\limits_{i=1}^mx_i^2-\bigg( 2\sum\limits_{i=1}^mx_i\bigg)^2\\
-    &=&4m\sum\limits_{i=1}^mx_i^2-4m\cdot\frac1m\cdot\bigg( \sum\limits_{i=1}^mx_i\bigg)^2\\
-    &=&4m\sum\limits_{i=1}^mx_i^2-4m\cdot\bar x\cdot \sum\limits_{i=1}^mx_i\\
-    &=&4m\bigg( \sum\limits_{i=1}^mx_i^2-\sum\limits_{i=1}^mx_i\bar x\bigg)\\
-    &=&4m\sum\limits_{i=1}^m(x_i^2-x_i\bar x) \\
-    &=&4m\sum\limits_{i=1}^m(x_i^2-x_i\bar x-x_i\bar x+x_i\bar x)\qquad\longleftarrow\qquad因为\sum\limits_{i=1}^mx_i\bar x=m\bar x\bar x=\sum\limits_{i=1}^m\bar x^2\\
-    &=&4m\sum\limits_{i=1}^m(x_i-\bar x)^2 \geq0
-\end{eqnarray}</script><p>由上可以证明：$\color{red}{E(w,b)是关于w和b的凸函数.}$</p>
-<h3 id="算出损失函数取最小值时w与b的值"><a href="#算出损失函数取最小值时w与b的值" class="headerlink" title="算出损失函数取最小值时w与b的值"></a>算出损失函数取最小值时w与b的值</h3><p>根据定理：设E(w,b)是在D内有连续偏导数的凸函数，$(w^<em>，b^</em>)\in D$ 且$E’_w(w^<em>,b^</em>)=0,E’_b(w^<em>,b^</em>)=0$ 则$E(w^<em>,b^</em>)$必为E(w,b)在D内的最小值。</p>
-<p>前面的小节我们证明了损失函数E(w,b)是凸函数，所以E(w,b)取最小值时，w与b的解$w^<em>$与$b^</em>$ 满足<br>E(w,b)的一阶偏导数为0。</p>
-<h4 id="先来求b"><a href="#先来求b" class="headerlink" title="先来求b"></a>先来求b</h4><p>令 $\frac{\partial E(w,b)}{\partial b}=0$  (即：式1.3=0)</p>
-<script type="math/tex; mode=display">\frac{\partial E(w,b)}{\partial b}=2\bigg(mb-\sum_{i=1}^m(y_i-wx_i)\bigg)=0</script><script type="math/tex; mode=display">mb = \sum_{i=1}^m(y_i-wx_i)</script><script type="math/tex; mode=display">\begin{eqnarray}b^*
-    &=&\frac1m\sum_{i=1}^m(y_i-wx_i)\\
-    &=&\frac1m\sum_{i=1}^my_i-w\cdot\frac1m\sum_{i=1}^mx_i\\
-    &=&\bar y-w\bar x\\
-\end{eqnarray}</script><h4 id="再来求w"><a href="#再来求w" class="headerlink" title="再来求w"></a>再来求w</h4><p>$令\frac{\partial E(w,b)}{\partial w}=0$  (即：式1.2=0)</p>
-<script type="math/tex; mode=display">\frac{\partial E(w,b)}{\partial w}=2\bigg(w\sum_{i=1}^mx_i^2-\sum_{i=1}^m(y_i-b)x_i\bigg)=0</script><script type="math/tex; mode=display">w\sum_{i=1}^mx_i^2=\sum_{i=1}^my_ix_i-\sum_{i=1}^mbx_i</script><script type="math/tex; mode=display">w\sum_{i=1}^mx_i^2=\sum_{i=1}^my_ix_i-\sum_{i=1}^m(\bar y-w\bar x)x_i</script><script type="math/tex; mode=display">w\sum_{i=1}^mx_i^2=\sum_{i=1}^my_ix_i-\bar y\sum_{i=1}^mx_i+w\bar x\sum_{i=1}^mx_i</script><script type="math/tex; mode=display">w\bigg(\sum_{i=1}^mx_i^2-\bar x\sum_{i=1}^mx_i\bigg)=\sum_{i=1}^my_ix_i-\bar y\sum_{i=1}^mx_i</script><script type="math/tex; mode=display">w^*=\frac{\sum\limits_{i=1}^my_ix_i-\bar y\sum\limits_{i=1}^mx_i}{\sum\limits_{i=1}^mx_i^2-\bar x\sum\limits_{i=1}^mx_i}\qquad\qquad(1.4)</script><p>因为：</p>
-<script type="math/tex; mode=display">\bar y\sum\limits_{i=1}^mx_i=\frac1m\sum\limits_{i=1}^my_i\sum\limits_{i=1}^mx_i=\bar x\sum\limits_{i=1}^my_i\qquad\qquad(1.5)</script><script type="math/tex; mode=display">\bar x\sum\limits_{i=1}^mx_i=\frac1m\sum\limits_{i=1}^mx_i\sum\limits_{i=1}^mx_i=\frac1m(\sum\limits_{i=1}^mx_i)^2\qquad\qquad(1.6)</script><p>将1.5和1.6代入1.4可得：</p>
-<script type="math/tex; mode=display">w^*=\frac{\sum\limits_{i=1}^my_ix_i-\bar x\sum\limits_{i=1}^my_i}{\sum\limits_{i=1}^mx_i^2-\frac1m(\sum\limits_{i=1}^mx_i)^2}=\frac{\sum\limits_{i=1}^my_i(x_i-\bar x)}{\sum\limits_{i=1}^mx_i^2-\frac1m(\sum\limits_{i=1}^mx_i)^2}</script><p>到此为止我们就求出了损失函数取最小值时的w和b的值（$w^<em>,b^</em>$）.</p>
-<h2 id="多元线性回归公式推导"><a href="#多元线性回归公式推导" class="headerlink" title="多元线性回归公式推导"></a>多元线性回归公式推导</h2><p>多元线性回归公式：（大家一定要记住：多元线性回归里变量为向量）</p>
-<script type="math/tex; mode=display">\begin{eqnarray}f(x_i)
-&=&w^Tx_i+b\\
-&=&(w_1 \   w_2\  \cdots \   w_d)  \left(\begin{matrix}x_{i1}\\ x_{i2}  \\ \vdots \\ x_{id}\end{matrix}\right) +b\\
-&=&w_1x_{i1}+w_2x_{i2}+\dots+w_dx_{id}+b
-\end{eqnarray}</script><p>现在我们令：</p>
-<p>$b=w_{d+1}  $</p>
-<script type="math/tex; mode=display">\begin{eqnarray}f(x_i)
-&=&(w_1 \   w_2\  \cdots \   w_d \   )  \left(\begin{matrix}x_{i1}\\ x_{i2}  \\ \vdots \\ x_{id}\end{matrix}\right) +b\\
-&=&(w_1 \   w_2\  \cdots \   w_d \    w_{d+1})  \left(\begin{matrix}x_{i1}\\ x_{i2}  \\ \vdots \\ x_{id} \\ 1\end{matrix}\right)
-=\hat w \hat x_i
-\end{eqnarray}</script><p>通过上面的方法，我们把w和b组合成了$\hat w$ 则：</p>
-<script type="math/tex; mode=display">f(\hat x_i)=\hat w^T\hat x_i</script><h3 id="推导思路-：-核心思想依然是最小二乘法"><a href="#推导思路-：-核心思想依然是最小二乘法" class="headerlink" title="推导思路 ： 核心思想依然是最小二乘法"></a>推导思路 ： 核心思想依然是最小二乘法</h3><h4 id="由最小二乘法导出损失函数"><a href="#由最小二乘法导出损失函数" class="headerlink" title="由最小二乘法导出损失函数"></a>由最小二乘法导出损失函数</h4><p>损失函数(均方误差)为：$E_\hat w = \sum\limits_{i=1}^m(y_i-f(\hat x_i))^2=\sum\limits_{i=1}^m(y_i-\hat w^T \hat x_i)^2$</p>
-<p>$X=\left(\begin{matrix}x_{11} &amp; x_{12} &amp;\cdots&amp;x_{1d}&amp;1\\ x_{12} &amp;x_{22} &amp;  \cdots&amp;  x_{2d}&amp;1 \\ \vdots &amp; \vdots  &amp;&amp;\vdots&amp;\vdots\\ x_{m1}&amp;x_{m2}&amp;\cdots&amp;x_{md}&amp;1\end{matrix}\right)= \left(\begin{matrix}x_1^T&amp;1\\ x_2^T&amp;1 \\ \vdots &amp;\vdots\\ x_m^T&amp;1\end{matrix}\right)=\left(\begin{matrix}\hat x_1^T\\ \hat x_2^T \\ \vdots \\ \hat x_m^T\end{matrix}\right)$</p>
-<p>$Y=\left(\begin{matrix}y_1\\y_2 \\ \vdots \\y_m\end{matrix}\right)$</p>
-<script type="math/tex; mode=display">\begin{eqnarray}E_\hat w 
-&=&\sum\limits_{i=1}^m\left(y_i-\hat w^T \hat x_i\right)^2\\
-&=&\left( y_1-\hat w^T\hat x_1\right)^2+\left( y_2-\hat w^T\hat x_2\right)^2+\cdots+\left( y_m-\hat w^T\hat x_m\right)^2\\
-&=&\left( y_1-\hat w^T\hat x_1 \quad  y_2-\hat w^T\hat x_2  \quad  \cdots \quad   y_m-\hat w^T\hat x_m\right)     \left(\begin{matrix} y_1-\hat w^T\hat x_1\\y_2-\hat w^T\hat x_2 \\ \vdots \\y_m-\hat w^T\hat x_m\end{matrix}\right)\\
-\end{eqnarray}</script><p>因为： $\hat w^T\hat x_i = \hat x_i^T\hat w（等式两边都是标量）  \qquad \qquad$   所以： $\left(\begin{matrix} y_1-\hat w^T\hat x_1\\y_2-\hat w^T\hat x_2 \\ \vdots \\y_m-\hat w^T\hat x_m\end{matrix}\right)=\left(\begin{matrix}y_1\\y_2 \\ \vdots \\y_m\end{matrix}\right) - \left(\begin{matrix}\hat x_1^T\hat w\\\hat x_2^T\hat w\\ \vdots \\\hat x_m^T\hat w\end{matrix}\right)=\left(\begin{matrix}y_1\\y_2 \\ \vdots \\y_m\end{matrix}\right)-\left(\begin{matrix}\hat x_1^T\\\hat x_2^T\\ \vdots \\\hat x_m^T\end{matrix}\right)\cdot\hat w=Y-X\cdot\hat w$</p>
-<p>所以   $ E_\hat w  = \left( y_1-\hat w^T\hat x_1 \quad  y_2-\hat w^T\hat x_2  \quad  \cdots \quad   y_m-\hat w^T\hat x_m\right)     \left(\begin{matrix} y_1-\hat w^T\hat x_1\\y_2-\hat w^T\hat x_2 \\ \vdots \\y_m-\hat w^T\hat x_m\end{matrix}\right)= \left(Y-X\hat w\right)^T\left(Y-X\hat w\right)\qquad\qquad(1.7)$</p>
-<h3 id="判断损失函数E的凹凸性"><a href="#判断损失函数E的凹凸性" class="headerlink" title="判断损失函数E的凹凸性"></a>判断损失函数E的凹凸性</h3><p>如果$E_\hat w $的Hessian矩阵是正定的，则$E_\hat w $即是凸函数。</p>
-<script type="math/tex; mode=display">\begin{eqnarray}\frac{\partial E_\hat w }{\partial \hat w}
-&=&\frac{\partial}{\partial \hat w}\left[\left(Y-X\hat w\right)^T\left(Y-X\hat w\right)\right]\\
-&=&\frac{\partial}{\partial \hat w}\left[\left(Y^T-\hat w^T X^T\right)^T\left(Y-X\hat w\right)\right]\\
-&=&\frac{\partial}{\partial \hat w}\left[\left(Y^T-\hat w^T X^T\right)^T\left(Y-X\hat w\right)\right]\\
-&=&\frac{\partial}{\partial \hat w}\left[Y^TY-Y^TX\hat w-\hat w^TX^TY+\hat w^TX^TX\hat w\right]\\
-&=&\frac{\partial Y^TX\hat w}{\partial \hat w}-\frac{\partial \hat w^TX^TY}{\partial \hat w}+\frac{\partial \hat w^TX^TX\hat w}{\partial \hat w}
-\end{eqnarray}</script><p>因为： $\frac{\partial x^Ta }{\partial x}=\frac{\partial a^Tx }{\partial x}=a\qquad\frac{\partial x^Tbx }{\partial x}=(b+b^T)x\qquad\qquad所以：\frac{\partial E_\hat w }{\partial \hat w}=-X^TY-X^TY+(X^TX+X^TX)\hat w=2X^T(X\hat w-Y)\qquad\qquad(1.8)$</p>
-<p>接下来求2阶偏导数：</p>
-<script type="math/tex; mode=display">\begin{eqnarray}\frac{\partial^2 E_\hat w }{\partial \hat w\partial \hat w^T}
-&=&\frac{\partial}{\partial \hat w}\left(\frac{\partial E_\hat w }{\partial \hat w}\right)\\
-&=&\frac{\partial}{\partial \hat w}\left[2X^T(X\hat w-Y)\right]\\
-&=&\frac{\partial}{\partial \hat w}\left(2X^TX\hat w-2X^TY\right)\\
-&=&2X^TX\qquad\qquad (Hessian矩阵)
-\end{eqnarray}</script><h3 id="求解损失函数最小时的参数的解"><a href="#求解损失函数最小时的参数的解" class="headerlink" title="求解损失函数最小时的参数的解"></a>求解损失函数最小时的参数的解</h3><p>令（1.8）  $\frac{\partial E_\hat w }{\partial \hat w}=2X^T(X\hat w-Y)=0  \qquad得出\qquad2X^TX \hat w=2X^TY$</p>
-<p>等式两边都乘以$(X^TX)^{-1}\qquad  得 \hat w = (X^TX)^{-1}X^TY\qquad\qquad(1.9)$</p>
-<h2 id="逻辑回归公式推导"><a href="#逻辑回归公式推导" class="headerlink" title="逻辑回归公式推导"></a>逻辑回归公式推导</h2><h3 id="指数族分布"><a href="#指数族分布" class="headerlink" title="指数族分布"></a>指数族分布</h3><p>分布律满足下式即为指数族分布：</p>
-<script type="math/tex; mode=display">p(y;\eta) = b(y) exp(\eta ^TT(y)-a(\eta))</script><p>假设y取值为1时的概率为$\phi$</p>
-<p>伯努力分布分布律为：</p>
-<script type="math/tex; mode=display">\begin{eqnarray} p(y)
-&=&\phi ^y(1-\phi)^{1-y} \\
-&=&exp(ln(\phi^y(1-\phi)^{1-y}))\\
-&=&exp(y ln\phi + (1-y)ln(1-\phi))\\
-&=&exp(y(ln\phi-ln(1-\phi))+ln(1-\phi))\\
-&=&exp\left(yln\left(\frac{\phi}{1-\phi}\right) +ln(1-\phi)\right)
-\end{eqnarray}</script><p>对照指数族分布的分布律可得：    $b(y)=1 \qquad \eta = ln\left(\frac{\phi}{1-\phi}\right) \qquad T(y) = y \qquad a(\eta) = -ln(1-\phi) = ln(1+e^{\eta})$</p>
-<p>所以伯努力分布为指数族分布。</p>
-<h3 id="广义线性模型"><a href="#广义线性模型" class="headerlink" title="广义线性模型"></a>广义线性模型</h3><p>广义线性模型满足下面三条假设：</p>
-<ol>
-<li>在给定x的条件下，假设y服从某个指数族分布。</li>
-<li>在给定x的条件下，我们的目标是得到一个模型h(x)能预测出T(y)的期望值。</li>
-<li>假设该指数族分布中的参数$\eta与x呈线性关系：\eta = w^Tx$</li>
-</ol>
-<p>假设逻辑回归的变量y服从伯努力分布。前面证明了满足第一条假设。下面来看第二条假设：</p>
-<script type="math/tex; mode=display">h(x)=E[T(y)]=E(y)</script><script type="math/tex; mode=display">E[y]=1\cdotp(y=1)+0\cdotp(y=0)=p(y=1)=\phi</script><script type="math/tex; mode=display">h(x)=\phi\qquad\qquad(1.10)</script><script type="math/tex; mode=display">\eta =ln\left(\frac{\phi}{1-\phi}\right)</script><script type="math/tex; mode=display">e^{\eta}=\frac{\phi}{1-\phi}</script><script type="math/tex; mode=display">e^{-\eta}=\frac{1}{\phi}-1</script><script type="math/tex; mode=display">\phi = \frac{1}{1+e^{-\eta}}</script><script type="math/tex; mode=display">h(x)= \frac{1}{1+e^{-\eta}}</script><p>根据第三条假设：<script type="math/tex">h(x)= \frac{1}{1+e^{-w^Tx}}</script></p>
-<h3 id="逻辑回归的极大似然估计"><a href="#逻辑回归的极大似然估计" class="headerlink" title="逻辑回归的极大似然估计"></a>逻辑回归的极大似然估计</h3><p>$y_1,y_2,\cdots,y_m是独立同分布的，所以他们的联合概率密度函数为L(w)=\prod\limits_{i=1}^mp(y_i|x_i;w,b)\qquad此为似然函数$</p>
-<p>lnL(w)与L(w)有相同最大值点 $lnL(w)=\sum\limits_{i=1}^mlnp(y_i|x_i;w,b)$</p>
-<p>$p(y=1|x) = \frac{e^{w^Tx+b}}{1+e^{w^Tx+b}}\qquad$<br>$p(y=0|x) = \frac1{1+e^{w^Tx+b}}$</p>
-<p>令$w^Tx+b = \hat w \hat x$</p>
-<p>$p(y=1|x) = \frac{e^{\hat w \hat x}}{1+e^{\hat w \hat x}}=p_1(\hat x;\hat w)\qquad$<br>$p(y=0|x) = \frac1{1+e^{\hat w \hat x}}=p_0(\hat x;\hat w)$</p>
-<p>把上面的两个式子写在一起为：</p>
-<script type="math/tex; mode=display">p(y|x;w,b)=[p_1(\hat x;\hat w)]^y[ p_0(\hat x;\hat w)]^{1-y}\qquad\qquad(1.10)</script><p>对数似然函数为：</p>
-<script type="math/tex; mode=display">\begin{eqnarray} lnL(w,b)
-&=&\sum\limits_{i=1}^mlnp(y_i|x_i;w,b)\\
-&=&\sum\limits_{i=1}^mln[p_1(\hat x_i;\hat w)]^y[ p_0(\hat x_i;\hat w)]^{1-y}\\
-&=&\sum\limits_{i=1}^m[y_iln(p_1(\hat x_i;\hat w))+(1-y_i)ln(p_0(\hat x_i;\hat w))]\\
-&=&\sum\limits_{i=1}^m[y_iln\left(\frac{p_1(\hat x_i;\hat w)}{p_0(\hat x_i;\hat w)}\right)+ln(p_0(\hat x_i;\hat w))]
-\end{eqnarray}</script><p>代入：$p(y=1|x) = \frac{e^{\hat w \hat x}}{1+e^{\hat w \hat x}}=p_1(\hat x;\hat w)\qquad$<br>$p(y=0|x) = \frac1{1+e^{\hat w \hat x}}=p_0(\hat x;\hat w)$</p>
-<script type="math/tex; mode=display">\begin{eqnarray} lnL(w,b)
-&=&\sum\limits_{i=1}^m\left[y_iln(e^{\hat w^T\hat x_i})+ln\left(\frac{1}{1+e^{\hat w^T\hat x_i}}\right)\right]\\
-&=&\sum\limits_{i=1}^m\left(y_i\hat w^T\hat x_i-ln(1+e^{\hat w^T\hat x_i})\right)
-\end{eqnarray}</script>
+                <h1 id="线性模型实现"><a href="#线性模型实现" class="headerlink" title="线性模型实现"></a>线性模型实现</h1><h2 id="创建一个通用的Estimator"><a href="#创建一个通用的Estimator" class="headerlink" title="创建一个通用的Estimator"></a>创建一个通用的Estimator</h2><pre class="line-numbers language-lang-python"><code class="language-lang-python">import warnings
+warnings.filterwarnings('ignore')
+import logging
+import autograd.numpy as np
+from autograd import grad
+
+np.random.seed(1000)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">class BaseEstimator(object):
+    X = None
+    y = None
+    y_required = True
+    fit_required = True
+
+    def _setup_input(self, X, y=None):
+        """
+        参数
+        ----------
+        X : 实例
+        y : 预测结果
+        """
+        if not isinstance(X, np.ndarray):
+            X = np.array(X)
+
+        if X.size == 0:
+            raise ValueError("Number of features must be > 0")
+
+        if X.ndim == 1:
+            self.n_samples, self.n_features = 1, X.shape
+        else:
+            self.n_samples, self.n_features = X.shape[0], np.prod(X.shape[1:])
+
+        self.X = X参数
+
+        if self.y_required:
+            if y is None:
+                raise ValueError("Missed required argument y")
+
+            if not isinstance(y, np.ndarray):
+                y = np.array(y)
+
+            if y.size == 0:
+                raise ValueError("Number of targets must be > 0")
+
+        self.y = y
+
+    def fit(self, X, y=None):
+        self._setup_input(X, y)
+
+    def predict(self, X=None):
+        if not isinstance(X, np.ndarray):
+            X = np.array(X)
+
+        if self.X is not None or not self.fit_required:
+            return self._predict(X)
+        else:
+            raise ValueError("You must call `fit` before `predict`")
+
+    def _predict(self, X=None):
+        raise NotImplementedError()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">EPS = 1e-15
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="定义一些评价指标"><a href="#定义一些评价指标" class="headerlink" title="定义一些评价指标"></a>定义一些评价指标</h2><pre class="line-numbers language-lang-python"><code class="language-lang-python">def accuracy(actual, predicted):
+    return 1.0 - classification_error(actual, predicted)
+
+def mean_squared_error(actual, predicted):
+    return np.mean(squared_error(actual, predicted))
+
+def binary_crossentropy(actual, predicted):
+    predicted = np.clip(predicted, EPS, 1 - EPS)
+    return np.mean(-np.sum(actual * np.log(predicted) + (1 - actual) * np.log(1 - predicted)))
+
+def squared_error(actual, predicted):
+    return (actual - predicted) ** 2
+
+def classification_error(actual, predicted):
+    return (actual != predicted).sum() / float(actual.shape[0])
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="基于梯度下降法的基本回归模型"><a href="#基于梯度下降法的基本回归模型" class="headerlink" title="基于梯度下降法的基本回归模型"></a>基于梯度下降法的基本回归模型</h2><pre class="line-numbers language-lang-python"><code class="language-lang-python">
+
+
+class BasicRegression(BaseEstimator):
+    def __init__(self, lr=0.001, penalty="None", C=0.01, tolerance=0.0001, max_iters=1000):
+        """基于梯度下降法的基本回归模型
+
+        参数
+        ----------
+        lr : 学习率
+        penalty : 正则化项
+        C : 正则化系数
+        tolerance : 梯度下降更新停止阈值
+        max_iters : 最大迭代次数
+        """
+        self.C = C
+        self.penalty = penalty
+        self.tolerance = tolerance
+        self.lr = lr
+        self.max_iters = max_iters
+        self.errors = []
+        self.theta = []
+        self.n_samples, self.n_features = None, None
+        self.cost_func = None
+
+    def _loss(self, w):
+        raise NotImplementedError()
+
+    def init_cost(self):
+        raise NotImplementedError()
+
+    def _add_penalty(self, loss, w):
+        """Apply regularization to the loss."""
+        if self.penalty == "l1":
+            loss += self.C * np.abs(w[1:]).sum()
+        elif self.penalty == "l2":
+            loss += (0.5 * self.C) * (w[1:] ** 2).sum()
+        return loss
+
+    def _cost(self, X, y, theta):
+        prediction = X.dot(theta)
+        error = self.cost_func(y, prediction)
+        return error
+
+    def fit(self, X, y=None):
+        self._setup_input(X, y)
+        self.init_cost()
+        self.n_samples, self.n_features = X.shape
+
+        # Initialize weights + bias term
+        self.theta = np.random.normal(size=(self.n_features + 1), scale=0.5)
+
+        # Add an intercept column
+        self.X = self._add_intercept(self.X)
+
+        self._train()
+
+    @staticmethod
+    def _add_intercept(X):
+        b = np.ones([X.shape[0], 1])
+        return np.concatenate([b, X], axis=1)
+
+    def _train(self):
+        self.theta, self.errors = self._gradient_descent()
+        logging.info(" Theta: %s" % self.theta.flatten())
+
+    def _predict(self, X=None):
+        X = self._add_intercept(X)
+        return X.dot(self.theta)
+
+    def _gradient_descent(self):
+        theta = self.theta
+        errors = [self._cost(self.X, self.y, theta)]
+        # Get derivative of the loss function
+        cost_d = grad(self._loss)
+        for i in range(1, self.max_iters + 1):
+            # Calculate gradient and update theta
+            delta = cost_d(theta)
+            theta -= self.lr * delta
+
+            errors.append(self._cost(self.X, self.y, theta))
+            logging.info("Iteration %s, error %s" % (i, errors[i]))
+
+            error_diff = np.linalg.norm(errors[i - 1] - errors[i])
+            if error_diff < self.tolerance:
+                logging.info("Convergence has reached.")
+                break
+        return theta, errors
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="定义基于梯度下降法的线性回归与逻辑回归模型"><a href="#定义基于梯度下降法的线性回归与逻辑回归模型" class="headerlink" title="定义基于梯度下降法的线性回归与逻辑回归模型"></a>定义基于梯度下降法的线性回归与逻辑回归模型</h2><pre class="line-numbers language-lang-python"><code class="language-lang-python">class LinearRegression(BasicRegression):
+    """Linear regression with gradient descent optimizer."""
+
+    def _loss(self, w):
+        loss = self.cost_func(self.y, np.dot(self.X, w))
+        return self._add_penalty(loss, w)
+
+    def init_cost(self):
+        self.cost_func = mean_squared_error
+
+
+class LogisticRegression(BasicRegression):
+    """Binary logistic regression with gradient descent optimizer."""
+
+    def init_cost(self):
+        self.cost_func = binary_crossentropy
+
+    def _loss(self, w):
+        loss = self.cost_func(self.y, self.sigmoid(np.dot(self.X, w)))
+        return self._add_penalty(loss, w)
+
+    @staticmethod
+    def sigmoid(x):
+        return 0.5 * (np.tanh(0.5 * x) + 1)
+
+    def _predict(self, X=None):
+        X = self._add_intercept(X)
+        return self.sigmoid(X.dot(self.theta))
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="用一个小例子来使用上面实现的线性回归与逻辑回归模型"><a href="#用一个小例子来使用上面实现的线性回归与逻辑回归模型" class="headerlink" title="用一个小例子来使用上面实现的线性回归与逻辑回归模型"></a>用一个小例子来使用上面实现的线性回归与逻辑回归模型</h2><pre class="line-numbers language-lang-python"><code class="language-lang-python">import logging
+
+try:
+    from sklearn.model_selection import train_test_split
+except ImportError:
+    from sklearn.cross_validation import train_test_split
+from sklearn.datasets import make_classification
+from sklearn.datasets import make_regression
+
+# Change to DEBUG to see convergence
+logging.basicConfig(level=logging.ERROR)
+
+
+def regression():
+    # Generate a random regression problem
+    X, y = make_regression(
+        n_samples=10000, n_features=100, n_informative=75, n_targets=1, noise=0.05, random_state=1111, bias=0.5
+    )
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=1111)
+
+    model = LinearRegression(lr=0.01, max_iters=2000, penalty="l2", C=0.03)
+    model.fit(X_train, y_train)
+    predictions = model.predict(X_test)
+    print("regression mse", mean_squared_error(y_test, predictions))
+
+
+def classification():
+    # Generate a random binary classification problem.
+    X, y = make_classification(
+        n_samples=1000, n_features=100, n_informative=75, random_state=1111, n_classes=2, class_sep=2.5
+    )
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=1111)
+
+    model = LogisticRegression(lr=0.01, max_iters=500, penalty="l1", C=0.01)
+    model.fit(X_train, y_train)
+    predictions = model.predict(X_test)
+    print("classification accuracy", accuracy(y_test, predictions))
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">regression()
+classification()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>regression mse 67.1561814262031
+classification accuracy 0.97
+</code></pre>
             </div>
             <hr />
 
@@ -769,9 +870,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《线性模型公式推导》
+                    《线性模型代码实现》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/01/22/xian-xing-hui-gui-mo-xing-xi-gua/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/25/xian-xing-mo-xing-dai-ma-shi-xian/" property="cc:attributionName"
                rel="cc:attributionURL">
                 大米
             </a> 采用
@@ -812,7 +913,7 @@
         repo: 'godweiyang.github.io',
         owner: 'godweiyang',
         admin: "godweiyang",
-        id: '2018/01/22/xian-xing-hui-gui-mo-xing-xi-gua/',
+        id: '2019/11/25/xian-xing-mo-xing-dai-ma-shi-xian/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1095,84 +1196,36 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2018/01/22/2017-conclusion/">
+                <a href="/2019/11/25/xian-xing-mo-xing-dai-ma-shi-xian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="二零一七年终总结">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="线性模型代码实现">
                         
-                        <span class="card-title">二零一七年终总结</span>
+                        <span class="card-title">线性模型代码实现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            时间过得很快，终于等到放寒假了，虽然这几个月没有课，天天和放假也没啥区别呢。细数一下，还有5个月就要毕业了吧，大一刚入学的场景却依然清楚地记得，转眼间就成了老学长了呢。闲来无事，随便写写，有感而发，无病呻吟而已。
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-22
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/随笔/" class="post-category" target="_blank">
-                                    随笔
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/随笔/" target="_blank">
-                        <span class="chip bg-color">随笔</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2018/01/22/xian-xing-hui-gui-mo-xing-xi-gua/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="线性模型公式推导">
-                        
-                        <span class="card-title">线性模型公式推导</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            时间过得很快，终于等到放寒假了，虽然这几个月没有课，天天和放假也没啥区别呢。细数一下，还有5个月就要毕业了吧，大一刚入学的场景却依然清楚地记得，转眼间就成了老学长了呢。闲来无事，随便写写，有感而发，无病呻吟而已。
+                            本篇为线性模型的python代码实现。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/随笔/" class="post-category" target="_blank">
-                                    随笔
+                            <a href="/categories/机器学习模型/" class="post-category" target="_blank">
+                                    机器学习模型
                                 </a>
                             
                             
@@ -1183,8 +1236,57 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/随笔/" target="_blank">
-                        <span class="chip bg-color">随笔</span>
+                    <a href="/tags/降魔/" target="_blank">
+                        <span class="chip bg-color">降魔</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-yi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="线性模型公式推导（上）">
+                        
+                        <span class="card-title">线性模型公式推导（上）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本篇内容讲解了线性模型中一元与多元线性回归模型所涉及的数学公式的推导。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/机器学习模型/" class="post-category" target="_blank">
+                                    机器学习模型
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/降魔/" target="_blank">
+                        <span class="chip bg-color">降魔</span>
                     </a>
                     
                 </div>
@@ -1346,7 +1448,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">4.4k</span>
+            <span class="white-color">3.8k</span>
             
 
             <br>
