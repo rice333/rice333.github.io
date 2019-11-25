@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rice333.github.io/"/>
-  <updated>2019-11-25T05:17:14.231Z</updated>
+  <updated>2019-11-25T10:20:08.118Z</updated>
   <id>https://rice333.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>线性模型公式推导（二）</title>
+    <link href="https://rice333.github.io/2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-er/"/>
+    <id>https://rice333.github.io/2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-er/</id>
+    <published>2019-11-25T10:00:45.000Z</published>
+    <updated>2019-11-25T10:20:08.118Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;线性模型公式推导（二）&quot;&gt;&lt;a href=&quot;#线性模型公式推导（二）&quot; class=&quot;headerlink&quot; title=&quot;线性模型公式推导（二）&quot;&gt;&lt;/a&gt;线性模型公式推导（二）&lt;/h1&gt;&lt;h2 id=&quot;逻辑回归公式推导&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习模型" scheme="https://rice333.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+      <category term="降魔" scheme="https://rice333.github.io/tags/%E9%99%8D%E9%AD%94/"/>
+    
+  </entry>
   
   <entry>
     <title>线性模型代码实现</title>
