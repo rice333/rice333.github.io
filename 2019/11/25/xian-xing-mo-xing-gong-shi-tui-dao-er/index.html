@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="线性模型公式推导（二）, NLP DeepLearning 大米 自然语言处理 深度学习">
+    <meta name="keywords" content="线性模型公式推导（下）, NLP DeepLearning 大米 自然语言处理 深度学习">
     <meta name="baidu-site-verification" content="Xis4216lgs">
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="线性模型公式推导（二）逻辑回归公式推导逻辑回归推导思路
+    <meta name="description" content="线性模型公式推导（下）1.1逻辑回归公式推导1.1.1逻辑回归推导思路
 逻辑回归是如何被建模出来的
 
 逻辑回归的损失函数是什么以及是如何得出的
@@ -16,8 +16,7 @@
 逻辑回归的参数如何得出
 
 
-逻辑回归又叫对数几率回归，那么它是怎么得出来的呢？这里介绍两种建模方法：
-建模方法">
+逻辑回归又叫对数几率回归，那么它是怎么得出来的呢？这里介绍两种建模">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +24,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>线性模型公式推导（二） |  米仓</title>
+    <title>线性模型公式推导（下） |  米仓</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -299,13 +298,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        线性模型公式推导（二）
+                        线性模型公式推导（下）
                     </div>
                 </div>
             </div>
@@ -454,14 +453,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    9 分
                 </div>
                 
                 
@@ -477,7 +476,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="线性模型公式推导（二）"><a href="#线性模型公式推导（二）" class="headerlink" title="线性模型公式推导（二）"></a>线性模型公式推导（二）</h1><h2 id="逻辑回归公式推导"><a href="#逻辑回归公式推导" class="headerlink" title="逻辑回归公式推导"></a>逻辑回归公式推导</h2><h3 id="逻辑回归推导思路"><a href="#逻辑回归推导思路" class="headerlink" title="逻辑回归推导思路"></a>逻辑回归推导思路</h3><ol>
+                <h1 id="线性模型公式推导（下）"><a href="#线性模型公式推导（下）" class="headerlink" title="线性模型公式推导（下）"></a>线性模型公式推导（下）</h1><h2 id="1-1逻辑回归公式推导"><a href="#1-1逻辑回归公式推导" class="headerlink" title="1.1逻辑回归公式推导"></a>1.1逻辑回归公式推导</h2><h3 id="1-1-1逻辑回归推导思路"><a href="#1-1-1逻辑回归推导思路" class="headerlink" title="1.1.1逻辑回归推导思路"></a>1.1.1逻辑回归推导思路</h3><ol>
 <li><p>逻辑回归是如何被建模出来的</p>
 </li>
 <li><p>逻辑回归的损失函数是什么以及是如何得出的</p>
@@ -486,12 +485,13 @@
 </li>
 </ol>
 <p>逻辑回归又叫对数几率回归，那么它是怎么得出来的呢？这里介绍两种建模方法：</p>
-<h3 id="建模方法一"><a href="#建模方法一" class="headerlink" title="建模方法一"></a>建模方法一</h3><h4 id="广义线性模型"><a href="#广义线性模型" class="headerlink" title="广义线性模型"></a>广义线性模型</h4><p>上一篇中的基础线性模型我们用$w^Tx+b$直接去拟合结果y。即：$y=w^Tx+b$</p>
+<h3 id="1-1-2建模方法一"><a href="#1-1-2建模方法一" class="headerlink" title="1.1.2建模方法一"></a>1.1.2建模方法一</h3><h4 id="1-1-2-1广义线性模型"><a href="#1-1-2-1广义线性模型" class="headerlink" title="1.1.2.1广义线性模型"></a>1.1.2.1广义线性模型</h4><p>上一篇中的基础线性模型我们用$w^Tx+b$直接去拟合结果y。即：$y=w^Tx+b$</p>
 <p>现在我们用线性模型去拟合结果y的函数g(y)（一般考虑单调可微函数）即：$g(y)=w^Tx+b$，这就是广义线性模型。</p>
 <p>函数g()被称为联系函数。</p>
-<h4 id="逻辑回归公式的导出"><a href="#逻辑回归公式的导出" class="headerlink" title="逻辑回归公式的导出"></a>逻辑回归公式的导出</h4><p>逻辑回归是在对一个二分类问题建模，所以它的样本有正与负两个分类。首先我们假设y为样本x为正例的概率。则(1-y)为x为反例的概率，他们两者的比值为$\frac{y}{1-y}$,我们对它取对数则可得$ln\frac{y}{1-y}$,然后我们用线性模型去拟合它则有:</p>
-<script type="math/tex; mode=display">ln\frac{y}{1-y}=w^Tx+b</script><p>下面我们来推一下,由上式可得</p>
-<script type="math/tex; mode=display">\frac{y}{1-y}=e^{w^Tx+b}</script><script type="math/tex; mode=display">y=e^{w^Tx+b}-e^{w^Tx+b}y</script><script type="math/tex; mode=display">(1+e^{w^Tx+b})y=e^{w^Tx+b}</script><script type="math/tex; mode=display">y=\frac{e^{w^Tx+b} } {(1+e^{w^Tx+b})}</script><script type="math/tex; mode=display">y=\frac{1} { {e^{w^Tx+b} }^{-1}+1}</script><script type="math/tex; mode=display">y=\frac{1} { {1+e^{-(w^Tx+b)} }  }</script><h3 id="建模方法二"><a href="#建模方法二" class="headerlink" title="建模方法二"></a>建模方法二</h3><h4 id="指数族分布"><a href="#指数族分布" class="headerlink" title="指数族分布"></a>指数族分布</h4><p>分布律满足下式即为指数族分布：</p>
+<h4 id="1-1-2-2逻辑回归公式的导出"><a href="#1-1-2-2逻辑回归公式的导出" class="headerlink" title="1.1.2.2逻辑回归公式的导出"></a>1.1.2.2逻辑回归公式的导出</h4><p>逻辑回归是在对一个二分类问题建模，所以它的样本有正与负两个分类。首先我们假设y为样本x为正例的概率。则(1-y)为x为反例的概率，他们两者的比值为$\frac{y}{1-y}$,我们对它取对数则可得$ln\frac{y}{1-y}$,然后我们用线性模型去拟合它则有:</p>
+<script type="math/tex; mode=display">ln\frac{y}{1-y}=w^Tx+b</script><p>下面我们来推一下,<br>由上式可得： </p>
+<script type="math/tex; mode=display">\frac{y}{1-y}=e^{w^Tx+b}</script><script type="math/tex; mode=display">y=e^{w^Tx+b}-e^{w^Tx+b}y</script><script type="math/tex; mode=display">(1+e^{w^Tx+b})y=e^{w^Tx+b}</script><script type="math/tex; mode=display">y=\frac{e^{w^Tx+b} } {(1+e^{w^Tx+b})}</script><script type="math/tex; mode=display">y=\frac{1}{ {e^{w^Tx+b}}^{-1}+1}</script><script type="math/tex; mode=display">y=\frac{1}{ {1+e^{-(w^Tx+b)} } }</script><p>通过上面的一系列变化我们就得出了逻辑回归的表达式了。</p>
+<h3 id="1-1-3建模方法二"><a href="#1-1-3建模方法二" class="headerlink" title="1.1.3建模方法二"></a>1.1.3建模方法二</h3><h4 id="1-1-3-1指数族分布"><a href="#1-1-3-1指数族分布" class="headerlink" title="1.1.3.1指数族分布"></a>1.1.3.1指数族分布</h4><p>分布律满足下式即为指数族分布：</p>
 <script type="math/tex; mode=display">p(y;\eta) = b(y) exp(\eta ^TT(y)-a(\eta))</script><p>逻辑回归是在对一个二分类问题建模，则我们可以很合理的假设该二分类符合伯努利分布</p>
 <p>假设y取值为1时的概率为$\phi$</p>
 <p>伯努力分布分布律为：</p>
@@ -503,10 +503,10 @@
 &=exp\left(yln\left(\frac{\phi}{1-\phi}\right) +ln(1-\phi)\right)
 \end{aligned}</script><p>对照指数族分布的分布律可得：    $b(y)=1 \qquad \eta = ln\left(\frac{\phi}{1-\phi}\right) \qquad T(y) = y \qquad a(\eta) = -ln(1-\phi) = ln(1+e^{\eta})$</p>
 <p>所以伯努力分布为指数族分布。</p>
-<p>我们看一下由：<script type="math/tex">\eta = ln\left(\frac{\phi}{1-\phi}\right)</script></p>
-<p>可得：<script type="math/tex">e^{\eta}=\frac{\phi}{1-\phi}</script></p>
-<script type="math/tex; mode=display">e^{-\eta}=\frac{1}{\phi}-1</script><script type="math/tex; mode=display">\phi = \frac{1}{1+e^{-\eta}} \qquad(1.0)</script><p>好，我们先推到这里下面我们看一下广义线性模型的三个性质。</p>
-<h4 id="根据广义线性模型三大假设建立逻辑回归模型表达式"><a href="#根据广义线性模型三大假设建立逻辑回归模型表达式" class="headerlink" title="根据广义线性模型三大假设建立逻辑回归模型表达式"></a>根据广义线性模型三大假设建立逻辑回归模型表达式</h4><p>通过下面三条假设构建出来的模型就是广义线性模型：</p>
+<p>我们看一下由：</p>
+<script type="math/tex; mode=display">\eta = ln\left(\frac{\phi}{1-\phi}\right)</script><p>可得：</p>
+<script type="math/tex; mode=display">e^{\eta}=\frac{\phi}{1-\phi}</script><script type="math/tex; mode=display">e^{-\eta}=\frac{1}{\phi}-1</script><script type="math/tex; mode=display">\phi = \frac{1}{1+e^{-\eta}}</script><p>好，我们先推到这里下面我们看一下广义线性模型的三个性质。</p>
+<h4 id="1-1-3-2根据广义线性模型三大假设建立逻辑回归模型表达式"><a href="#1-1-3-2根据广义线性模型三大假设建立逻辑回归模型表达式" class="headerlink" title="1.1.3.2根据广义线性模型三大假设建立逻辑回归模型表达式"></a>1.1.3.2根据广义线性模型三大假设建立逻辑回归模型表达式</h4><p>通过下面三条假设构建出来的模型就是广义线性模型：</p>
 <ol>
 <li>在给定x的条件下，假设y服从某个指数族分布。</li>
 <li>在给定x的条件下，我们的目标是得到一个模型h(x)能预测出T(y)的期望值。</li>
@@ -516,33 +516,49 @@
 <p>我们前面在介绍指数分布族的时候已经证明了伯努利分布是属于指数分布族的了，而逻辑回归也是建立在伯努利分布的基础上所以第一条假设的已经满足。<br>下面看第二条假设，由上文中T(y)]=y 可得：</p>
 <script type="math/tex; mode=display">h(x)=E[T(y)]=E(y)</script><script type="math/tex; mode=display">E[y]=1\cdot p(y=1)+0\cdot p(y=0)=p(y=1)=\phi</script><script type="math/tex; mode=display">h(x)=\phi</script><p>由上面的式（1.0可得）</p>
 <script type="math/tex; mode=display">h(x)= \frac{1}{1+e^{-\eta}}</script><p>再根据第三条假设可得：</p>
-<script type="math/tex; mode=display">h(x)= \frac{1}{1 +e^ {-w^Tx}}</script><p>这样我们便得出了逻辑回归的模型表达式了</p>
-<h3 id="逻辑回归的损失函数构建"><a href="#逻辑回归的损失函数构建" class="headerlink" title="逻辑回归的损失函数构建"></a>逻辑回归的损失函数构建</h3><p>因为我们假设我们研究的二分类问题符合伯努利分布，y的取值为0(负例)或1(正例)。由前文知ℎ(𝑥)为样本是正例的概率，则：</p>
-<script type="math/tex; mode=display">
-p(y_i|x_i)=
-\begin{cases}
-h(x_i)& {y_i=1}\\
-1-h(x_i)& {y_i=0}
-\end{cases}</script><p>把上面两个式子写在一起为：</p>
-<script type="math/tex; mode=display">p(y_i|x_i)=h(x_i)^{y_i}(1-h(x_i)^{(1-y_i)}</script><p>假设现在有m个样本，则它们的联合概率（即似然函数）为：</p>
-<script type="math/tex; mode=display">L=\prod\limits_{i=1}^mp(y_i|x_i)</script><p>取对数为：</p>
-<script type="math/tex; mode=display">lnL(w)=\sum\limits_{i=1}^mln（h(x_i)^{y_i}(1-h(x_i)^{(1-y_i)}）=\sum\limits_{i=1}^m({y_i}lnh(x_i)+{(1-y_i)}ln(1-h(x_i)))</script><h3 id="用极大似然估计法得出逻辑回归的最优参数"><a href="#用极大似然估计法得出逻辑回归的最优参数" class="headerlink" title="用极大似然估计法得出逻辑回归的最优参数"></a>用极大似然估计法得出逻辑回归的最优参数</h3><p>$y_1,y_2,\cdots,y_m是独立同分布的，所以他们的联合概率密度函数为L(w)=\prod\limits_{i=1}^mp(y_i|x_i;w,b)\qquad此为似然函数$</p>
+<script type="math/tex; mode=display">h(x)= \frac{1}{1+e^{-w^Tx}}</script><p>这样我们便得出了逻辑回归的模型表达式了</p>
+<h3 id="1-1-4用极大似然估计法构建逻辑回归的损失函数"><a href="#1-1-4用极大似然估计法构建逻辑回归的损失函数" class="headerlink" title="1.1.4用极大似然估计法构建逻辑回归的损失函数"></a>1.1.4用极大似然估计法构建逻辑回归的损失函数</h3><p>$y_1,y_2,\cdots,y_m是独立同分布的，所以他们的联合概率密度函数为L(w)=\prod\limits_{i=1}^mp(y_i|x_i;w,b)\qquad此为似然函数$</p>
 <p>lnL(w)与L(w)有相同最大值点 $lnL(w)=\sum\limits_{i=1}^mlnp(y_i|x_i;w,b)$</p>
-<p>$p(y=1|x) = \frac{e^{w^Tx+b}}{1+e^{w^Tx+b}}\qquad$<br>$p(y=0|x) = \frac1{1+e^{w^Tx+b}}$</p>
+<script type="math/tex; mode=display">p(y|x)=
+\begin{cases}
+\frac{e^{w^Tx+b}}{1+e^{w^Tx+b}}& \text{y=1}\\
+\frac1{1+e^{w^Tx+b}}& \text{y=0}
+\end{cases}</script><p>即：<br>$p(y=1|x) = \frac{e^{w^Tx+b}}{1+e^{w^Tx+b}}\qquad$<br>$p(y=0|x) = \frac1{1+e^{w^Tx+b}}$</p>
 <p>令$w^Tx+b = \hat w \hat x$</p>
-<p>$p(y=1|x) = \frac{e^{\hat w \hat x}}{1+e^{\hat w \hat x}}=p_1(\hat x;\hat w)\qquad$<br>$p(y=0|x) = \frac1{1+e^{\hat w \hat x}}=p_0(\hat x;\hat w)$</p>
+<p>$p(y=1|x) = \frac{e^{\hat w \hat x} }{1+e^{\hat w \hat x} }=h_{\hat w}(\hat  x)$</p>
+<p>$p(y=0|x) = \frac{1}{1+e^{\hat w \hat x}}=1-h_{\hat w}(\hat x)$</p>
 <p>把上面的两个式子写在一起为：</p>
-<script type="math/tex; mode=display">p(y|x;w,b)=[p_1(\hat x;\hat w)]^y[ p_0(\hat x;\hat w)]^{1-y}\qquad\qquad(1.10)</script><p>对数似然函数为：</p>
-<script type="math/tex; mode=display">\begin{aligned} lnL(w,b)
-&=\sum\limits_{i=1}^mlnp(y_i|x_i;w,b)\\
-&=\sum\limits_{i=1}^mln[p_1(\hat x_i;\hat w)]^y[ p_0(\hat x_i;\hat w)]^{1-y}\\
-&=\sum\limits_{i=1}^m[y_iln(p_1(\hat x_i;\hat w))+(1-y_i)ln(p_0(\hat x_i;\hat w))]\\
-&=\sum\limits_{i=1}^m[y_iln\left(\frac{p_1(\hat x_i;\hat w)}{p_0(\hat x_i;\hat w)}\right)+ln(p_0(\hat x_i;\hat w))]
-\end{aligned}</script><p>代入：$p(y=1|x) = \frac{e^{\hat w \hat x}}{1+e^{\hat w \hat x}}=p_1(\hat x;\hat w)\qquad$<br>$p(y=0|x) = \frac1{1+e^{\hat w \hat x}}=p_0(\hat x;\hat w)$</p>
-<script type="math/tex; mode=display">\begin{aligned} lnL(w,b)
-&=\sum\limits_{i=1}^m\left[y_iln(e^{\hat w^T\hat x_i})+ln\left(\frac{1}{1+e^{\hat w^T\hat x_i}}\right)\right]\\
-&=\sum\limits_{i=1}^m\left(y_i\hat w^T\hat x_i-ln(1+e^{\hat w^T\hat x_i})\right)
-\end{aligned}</script><h2 id="感知器模型公式推导"><a href="#感知器模型公式推导" class="headerlink" title="感知器模型公式推导"></a>感知器模型公式推导</h2>
+<script type="math/tex; mode=display">p(y|\hat {x})=h_{\hat w}(\hat x)^y( 1-h_{\hat w}(\hat x))^{1-y}\qquad\qquad</script><p>似然函数为：</p>
+<script type="math/tex; mode=display">L(\hat w)=\prod_{i=1}^m h_{\hat w}(\hat x)^y( 1-h_{\hat w}(\hat x))^{1-y}</script><p>对数似然函数为：</p>
+<script type="math/tex; mode=display">\begin{aligned} \log(L(\hat w))
+&=\prod_{i=1}^m h_{\hat w}(\hat x)^y_i( 1-h_{\hat w}(\hat x))^{(1-y_i)}\\
+&=\sum_{i=1}^m [y_ilog(h_{\hat w}(\hat x)_i)+(1-y_i)log(1-h_{\hat w}(\hat x)_i)]\\
+\end{aligned}</script><p>根据上面的似然函数构造如下一个损失函数，极大化上面的对数似然函数，等于最小化下面的损失函数：</p>
+<script type="math/tex; mode=display">J(\hat w)=-\frac{1}{m}\sum_{i=1}^m [y_ilog(h_{\hat w}(\hat x)_i)+(1-y_i)log(1-h_{\hat w}(\hat x)_i)]\qquad\qquad(1)</script><h3 id="1-1-5用梯度下降法求解损失函数的最优参数"><a href="#1-1-5用梯度下降法求解损失函数的最优参数" class="headerlink" title="1.1.5用梯度下降法求解损失函数的最优参数"></a>1.1.5用梯度下降法求解损失函数的最优参数</h3><p>$令\hat w = w \qquad\frac{e^{\hat w \hat x} }{1+e^{\hat w \hat x} }=h_{\hat w}(\hat x_i)=\phi(z^{(i)})$</p>
+<p>则式（1）可以改写为：</p>
+<script type="math/tex; mode=display">J(w)= -\frac{1}{m}\sum_{i=1}^m [y_ilog(\phi(z^{(i)})+(1-y_i)log(1-\phi(z^{(i)})]</script><p>梯度下降法每次迭代，新的$w为:  w-\alpha \cdot \frac{\partial J( w)}{\partial  w}\quad \alpha 为学习率$</p>
+<p>sigmoid函数的导数：</p>
+<p>$\phi’(z)=\phi(z)(1-\phi(z))$</p>
+<p>$w是所有参数组成的向量，w_j为w的第j个分量$</p>
+<script type="math/tex; mode=display">\begin{aligned} \frac{\partial J(w)}{w_{j}} &=-\sum_{i=1}^{m}\left(y^{(i)} \frac{1}{\phi\left(z^{(i)}\right)}-\left(1-y^{(i)}\right) \frac{1}{1-\phi\left(z^{(i)}\right)}\right) \frac{\partial \phi\left(z^{(i)}\right)}{\partial w_{j}} \\ &=-\sum_{i=1}^{m}\left(y^{(i)} \frac{1}{\phi\left(z^{(i)}\right)}-\left(1-y^{(i)}\right) \frac{1}{1-\phi\left(z^{(i)}\right)}\right) \phi\left(z^{(i)}\right)\left(1-\phi\left(z^{(i)}\right)\right) \frac{\partial z^{(i)}}{\partial w_{j}} \\ &=-\sum_{i=1}^{m}\left(y^{(i)}\left(1-\phi\left(z^{(i)}\right)\right)-\left(1-y^{(i)}\right) \phi\left(z^{(i)}\right)\right) x_{j}^{(i)} \\ &=-\sum_{i=1}^{m}\left(y^{(i)}-\phi\left(z^{(i)}\right)\right) x_{j}^{(i)} \end{aligned}</script><p>$所以w_j更新函数为: w_j+\alpha\sum \limits_{i=1}^{m}\left(  y^{(i)}-\phi\left(z^{(i)}\right)\right) x_{j}^{(i)}$</p>
+<p>利用求得的更新函数，迭代多次后便可求出一个可以接受的参数值了。</p>
+<h2 id="1-2感知机模型公式推导"><a href="#1-2感知机模型公式推导" class="headerlink" title="1.2感知机模型公式推导"></a>1.2感知机模型公式推导</h2><h3 id="1-2-1感知机模型函数"><a href="#1-2-1感知机模型函数" class="headerlink" title="1.2.1感知机模型函数"></a>1.2.1感知机模型函数</h3><script type="math/tex; mode=display">f(x)=sign(w\cdot x+b)</script><p>sign(a)函数表示若a&gt;0则sign(a)=1; 若a&lt;0则sign(a)=-1。</p>
+<h3 id="1-2-2感知机的损失函数"><a href="#1-2-2感知机的损失函数" class="headerlink" title="1.2.2感知机的损失函数"></a>1.2.2感知机的损失函数</h3><p>感知机的损失函数是由误分类点到决策边界的距离所定义的。$假设x_i为分类错误的点，它到分类超平面w\cdot x+b=0的距离为:$</p>
+<script type="math/tex; mode=display">\frac{|w\cdot x_i+b|}{\parallel w\parallel}=\frac{-y_i(w\cdot x_i+b)}{\parallel w\parallel}</script><p>$其中\parallel w\parallel=\sqrt{w_1^2+w_2^2+\cdots +w_n^2}$</p>
+<p>若所有误分类的点所属的集合为M：则所有误分类点到超平面的总距离为：</p>
+<script type="math/tex; mode=display">\sum_{x_i \in M}\frac{-y_i(w\cdot x_i+b)}{\parallel w\parallel}</script><p>因为${\parallel w\parallel}$为常数，所以上面的式子等价于下面的$L(w,b)$</p>
+<script type="math/tex; mode=display">L(w,b)=-\sum_{x_i \in M} y_i(w \cdot x_i+b)</script><p>$L(w,b)$则为感知机的损失函数</p>
+<h3 id="1-2-3最小化损失函数"><a href="#1-2-3最小化损失函数" class="headerlink" title="1.2.3最小化损失函数"></a>1.2.3最小化损失函数</h3><p>$对于单个样本(x_i,y_i)$</p>
+<p>$L’_w(w,b)= \frac{\partial y_i(w \cdot x_i+b)}{\partial w}=-y_ix_i$</p>
+<p>$L’_b(w,b)= \frac{\partial y_i(w \cdot x_i+b)}{\partial b}=-y_i$</p>
+<p>接下来就是最小化损失函数从而找出参数的最优解</p>
+<h3 id="1-2-4用随机梯度下降法找到w和b最优解"><a href="#1-2-4用随机梯度下降法找到w和b最优解" class="headerlink" title="1.2.4用随机梯度下降法找到w和b最优解"></a>1.2.4用随机梯度下降法找到w和b最优解</h3><p>首先选初始值$(w_0,b_0)$</p>
+<p>在训练集中选取数据$(x_i,y_i)$</p>
+<p>如果它是错误分类的点，即：$y_i(w\cdot x_i+b)\le0$</p>
+<p>$则 w 更新为 w+\eta y_ix_i \qquad (\eta 为学习率)$</p>
+<p>$b更新为 b+\eta y_i$</p>
+<p>重复这个过程直到所有误分类的点都被正确分类为止。</p>
+
             </div>
             <hr />
 
@@ -700,7 +716,7 @@ h(x_i)& {y_i=1}\\
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《线性模型公式推导（二）》
+                    《线性模型公式推导（下）》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-er/" property="cc:attributionName"
                rel="cc:attributionURL">
@@ -1035,9 +1051,9 @@ h(x_i)& {y_i=1}\\
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="线性模型公式推导（二）">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="线性模型公式推导（下）">
                         
-                        <span class="card-title">线性模型公式推导（二）</span>
+                        <span class="card-title">线性模型公式推导（下）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1085,7 +1101,7 @@ h(x_i)& {y_i=1}\\
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="线性模型代码实现">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="线性模型代码实现">
                         
                         <span class="card-title">线性模型代码实现</span>
                     </div>
@@ -1278,7 +1294,7 @@ h(x_i)& {y_i=1}\\
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">5.2k</span>
+            <span class="white-color">5.8k</span>
             
 
             <br>
