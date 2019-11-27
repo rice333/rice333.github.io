@@ -484,7 +484,7 @@ $(function () {
         volume: Number('0.7'),
         listFolded: 'false' === 'true',
         listMaxHeight: '',
-        audio: JSON.parse('[{"name":"夜曲","artist":"周杰伦","url":"/medias/music/yequ.mp3","cover":"/medias/music/avatars/yequ.jpg"},{"name":"一路向北","artist":"周杰伦","url":"/medias/music/yiluxiangbei.mp3","cover":"/medias/music/avatars/yiluxiangbei.jpg"},{"name":"来自天堂的魔鬼","artist":"邓紫棋","url":"/medias/music/tiantangdemogui.mp3","cover":"/medias/music/avatars/tiantangdemogui.jpg"},{"name":"倒数","artist":"邓紫棋","url":"/medias/music/daoshu.mp3","cover":"/medias/music/avatars/daoshu.jpg"}]')
+        audio: JSON.parse('[{"name":"君との未来","artist":"光田康典","url":"/medias/music/光田康典 - 君との未来.mp3","cover":"/medias/music/avatars/counter.png"},{"name":"一百万个可能","artist":"海草","url":"/medias/music/一百万个可能.mp3","cover":"/medias/music/avatars/一百万个可能.jpg"},{"name":"夢の中の楽園","artist":"光田康典","url":"/medias/music/夢の中の楽園.mp3","cover":"/medias/music/avatars/梦中.jpg"},{"name":"探清水河","artist":"晓月老板","url":"/medias/music/探清水河.mp3","cover":"/medias/music/avatars/探清水河.jpg"},{"name":"Counterattack","artist":"平松建治 ","url":"/medias/music/平松建治 - Counterattack.mp3","cover":"/medias/music/avatars/君.jpg"},{"name":"飘向北方","artist":"666","url":"/medias/music/飘向北方.mp3","cover":"/medias/music/avatars/yequ.jpg"}]')
     });
 });
 </script>
@@ -495,6 +495,67 @@ $(function () {
                     <div id="recommend-sections" class="recommend">
                         
 
+
+
+
+
+<div class="title"><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;推荐文章</div>
+
+<div class="row">
+
+    
+    
+    <div class="col s12 m6" >
+        <div class="post-card" style="background-image: url('/medias/featureimages/11.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/机器学习模型/" class="category" target="_blank">机器学习模型</a>
+                    
+                </div>
+                <a href="/2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-yi/" target="_blank">
+                    <h3 class="post-title">线性模型公式推导（上）</h3>
+                </a>
+                <p class="post-description">
+                    
+                        本篇内容讲解了线性模型中一元与多元线性回归模型所涉及的数学公式的推导。
+                    
+                </p>
+                <a href="/2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-yi/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" >
+        <div class="post-card" style="background-image: url('/medias/featureimages/8.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/机器学习模型/" class="category" target="_blank">机器学习模型</a>
+                    
+                </div>
+                <a href="/2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-er/" target="_blank">
+                    <h3 class="post-title">线性模型公式推导（下）</h3>
+                </a>
+                <p class="post-description">
+                    
+                        本篇内容讲解了线性模型中逻辑回归与感知器模型所涉及的数学公式的推导。
+                    
+                </p>
+                <a href="/2019/11/25/xian-xing-mo-xing-gong-shi-tui-dao-er/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
 
 
                     </div>
@@ -762,7 +823,7 @@ $(function () {
         minutes - 0-59之间的整数，做为date对象的分钟数
         seconds - 0-59之间的整数，做为date对象的秒数
         microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-        var t1 = Date.UTC(2017, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t1 = Date.UTC(2019, 11, 23, 00, 00, 00); //北京时间2018-2-13 00:00:00
         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
         var diff = t2 - t1;
         var diffYears = Math.floor(diff / years);
@@ -774,6 +835,7 @@ $(function () {
     }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
     siteTime();
 </script>
+
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
