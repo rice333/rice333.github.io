@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rice333.github.io/"/>
-  <updated>2019-11-27T03:57:31.252Z</updated>
+  <updated>2019-12-02T09:34:14.694Z</updated>
   <id>https://rice333.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>朴素贝叶斯模型</title>
+    <link href="https://rice333.github.io/2019/12/02/po-su-bei-xie-si/"/>
+    <id>https://rice333.github.io/2019/12/02/po-su-bei-xie-si/</id>
+    <published>2019-12-02T09:33:45.000Z</published>
+    <updated>2019-12-02T09:34:14.694Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习模型" scheme="https://rice333.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+      <category term="降魔" scheme="https://rice333.github.io/tags/%E9%99%8D%E9%AD%94/"/>
+    
+  </entry>
   
   <entry>
     <title>线性模型公式推导（下）</title>
